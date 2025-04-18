@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, Instagram, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react";
 
 export const metadata = {
   title: "Contact Us - HEXAD Engineering",
@@ -17,17 +17,17 @@ export default function ContactPage() {
         <section className="relative py-20 overflow-hidden">
           <div className="container mx-auto px-4 relative">
             <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-blue-500">
                 Get in Touch
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-xl text-muted-foreground">
                 We&apos;d love to hear from you. Reach out to us for any inquiries about our engineering services.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="py-16">
+        <section className="py-8 mx-20">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-3 gap-8">
               <div className="lg:col-span-1 space-y-6">
@@ -38,13 +38,15 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-2">Visit Us</h3>
-                      <p className="text-muted-foreground">
-                        57 Idgah Rd, Sijubari,
-                        <br />
-                        Hatigaon, Guwahati
-                        <br />
-                        Kamrup Metro, Assam 781038, India
-                      </p>
+                      <div className="flex ">
+                        <p className="text-muted-foreground">
+                          Ground Floor,E1 Block (Beech),
+                          <br />
+                          Manyata Embassy Business Park, Outer Ring Road, Bangalore
+                          <br />
+                          560045, India.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Card>
@@ -57,12 +59,8 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-lg mb-2">Call Us</h3>
                       <div className="mb-2 last:mb-0">
-                        <p className="text-sm text-muted-foreground">India Office</p>
-                        <p className="text-foreground">+91-9577291349 🇮🇳</p>
-                      </div>
-                      <div className="mb-2 last:mb-0">
-                        <p className="text-sm text-muted-foreground">US Office</p>
-                        <p className="text-foreground">+1 (312) 313-9125 🇺🇸</p>
+                        <p className="text-sm text-muted-foreground"> Office Phone</p>
+                        <p className="text-foreground">+91-9577291349 </p>
                       </div>
                     </div>
                   </div>
@@ -85,7 +83,7 @@ export default function ContactPage() {
                   </div>
                 </Card>
 
-                <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                {/* <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="flex items-start gap-4">
                     <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600">
                       <Clock className="h-5 w-5" />
@@ -106,7 +104,7 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
-                </Card>
+                </Card> */}
 
                 <div className="flex gap-4">
                   <a
@@ -131,7 +129,7 @@ export default function ContactPage() {
               </div>
 
               <div className="lg:col-span-2">
-                <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg h-full">
+                <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg ">
                   <h3 className="font-semibold text-lg mb-6">Send us a Message</h3>
                   <form className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

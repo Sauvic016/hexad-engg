@@ -69,7 +69,7 @@ const Footer = () => {
           {/* Contact Us */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Contact Us</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:info@hexadengg.com"
@@ -79,17 +79,13 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-2">
-                  <div>
-                    <p className="text-muted-foreground">+91-7002020041 🇮🇳</p>
-                    {/* <p className="text-muted-foreground">+1 (12) mobile 🇺🇸</p> */}
-                  </div>
+                <div className="flex items-start ">
+                  <p className="text-muted-foreground">+91-7002020041</p>
                 </div>
               </li>
               <li>
-                <div className="flex items-start gap-2">
+                <div className="flex ">
                   <p className="text-muted-foreground">
-                    <br />
                     Ground Floor,E1 Block (Beech),
                     <br />
                     Manyata Embassy Business Park, Outer Ring Road, Bangalore
@@ -111,7 +107,7 @@ const Footer = () => {
               <Input type="email" placeholder="Enter your email" className="bg-background" />
               <Button
                 type="submit"
-                className="w-full px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-medium hover:from-blue-700 hover:to-cyan-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full cursor-pointer px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-400 text-white font-medium hover:from-blue-700 hover:to-blue-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Subscribe
               </Button>
