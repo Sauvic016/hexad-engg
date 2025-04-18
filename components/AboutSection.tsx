@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section className="mx-20 pt-24 bg-gradient-to-b from-blue-50/30 to-white dark:from-gray-900 dark:to-gray-950 overflow-hidden">
+    <section className="lg:mx-20 pt-24 bg-gradient-to-b from-blue-50/30 to-white dark:from-gray-900 dark:to-gray-950 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Who We Are</h2>

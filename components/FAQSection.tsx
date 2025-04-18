@@ -1,5 +1,6 @@
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Image from "next/image";
 
 const faqData = [
   {
@@ -42,16 +43,28 @@ const faqData = [
 
 const FAQSection = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Find answers to common questions about our services and processes
-          </p>
+    <section className="mt-24 bg-white md:mx-10">
+      <div className="text-center">
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Frequently Asked Questions</h2>
+        <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto my-8">
+          Find answers to common questions about our services and processes
+        </p>
+      </div>
+      <div className="flex  mt-12 mx-10 justify-around">
+        <div className="hidden md:flex text-center mb-16">
+          <div>
+            <Image
+              src="/question-mark.jpg"
+              width={600}
+              height={300}
+              alt="Custom software development"
+              className="rounded-lg object-cover"
+            />
+          </div>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl ">
           <Accordion type="single" collapsible className="space-y-4">
             {faqData.map((faq) => (
               <AccordionItem
@@ -59,8 +72,10 @@ const FAQSection = () => {
                 value={faq.id}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-sm px-6"
               >
-                <AccordionTrigger className="text-lg font-medium py-5">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5">{faq.answer}</AccordionContent>
+                <AccordionTrigger className="text-sm md:text-md xl:text-lg font-medium py-5">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-2 xl:pb-5">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

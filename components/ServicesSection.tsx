@@ -55,7 +55,7 @@ export default function SlickSlider() {
 
   return (
     <div className="w-full  mx-auto px-4 py-10 mt-12">
-      <div className="text-center mb-16">
+      <div className="text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Our Expertise</h2>
         <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
       </div>

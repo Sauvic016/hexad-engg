@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 // import Image from "next/image";
@@ -9,7 +10,7 @@ const Hero = () => {
     <section className="relative h-screen overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
       <div className="absolute inset-0 z-0 ">
         <video
-          src={`${process.env.HERO_VIDEO_URL}`}
+          src={`${process.env.NEXT_PUBLIC_HERO_VIDEO_URL}`}
           autoPlay
           muted
           loop

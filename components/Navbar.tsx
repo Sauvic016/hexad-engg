@@ -25,7 +25,7 @@ const NavItem = ({ href, label, pathname }: NavItemProps) => {
   return (
     <Link
       href={href}
-      className={`group relative flex items-center gap-2 py-2 text-base font-medium transition-colors duration-200
+      className={`group relative flex py-2 text-base font-medium transition-colors duration-200
       ${
         isActive
           ? "text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-primary after:transition-transform after:duration-200 after:scale-x-100"
@@ -47,23 +47,24 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
   return (
     <nav className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center">
-          <div className="flex-1">
+        <div className="flex h-20 justify-between items-center">
+          <div className="flex">
             <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
               <Image src="/logo.png" alt="HEXAD Engineering LLP" width={145} height={50} priority />
             </Link>
           </div>
 
-          <div className="hidden lg:flex flex-1 items-center justify-center gap-10">
+          <div className="hidden lg:flex w-full items-center justify-center gap-10">
             <NavItem href="/" label="Home" pathname={pathname} />
-            <NavItem href="/about" label="About" pathname={pathname} />
+            {/* <NavItem href="/about" label="Who We Are" pathname={pathname} /> */}
+            <NavItem href="/about" label="About us" pathname={pathname} />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
                   className="group relative flex items-center gap-2 py-2 text-base font-medium transition-colors duration-200 text-muted-foreground hover:text-foreground"
                 >
-                  <span>Services</span>
+                  <span>Our Expertise</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center">
@@ -99,12 +100,12 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <NavItem href="/contact" label="Contact" pathname={pathname} />
+            <NavItem href="/whatwedo" label="What We Do" pathname={pathname} />
             <NavItem href="/careers" label="Careers" pathname={pathname} />
-            <NavItem href="/blogs" label="Blogs" pathname={pathname} />
+            <NavItem href="/contact" label="Contact" pathname={pathname} />
           </div>
 
-          <div className="flex-1 flex items-center justify-end gap-4">
+          <div className="lg:hidden flex-1 flex items-center justify-end gap-4">
             <Button
               variant="ghost"
               size="icon"
