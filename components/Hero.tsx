@@ -36,7 +36,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
             // transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Link href="/services" className="hidden sm:block">
+            <Link href="/what-we-do" className="hidden sm:block">
               <Button size="lg" className="bg-brand-primary hover:bg-brand-primary text-white cursor-pointer">
                 Explore Services
                 <ArrowRight className="ml-2 h-4 w-4" />

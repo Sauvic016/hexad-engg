@@ -12,9 +12,9 @@ interface BenefitProps {
 const Benefit: React.FC<BenefitProps> = ({ icon, title, description }) => {
   return (
     <div className="flex items-start space-x-4 p-4 transition-all duration-300 hover:bg-white hover:shadow-md hover:-translate-y-1 rounded-lg">
-      <div className="bg-blue-100 text-blue-600 p-3 rounded-xl">{icon}</div>
+      <div className="bg-gray-200 text-gray-600 p-3 rounded-xl">{icon}</div>
       <div>
-        <h3 className="font-semibold text-lg text-gray-800 mb-1">{title}</h3>
+        <h3 className="font-semibold text-lg text-brand-primary mb-1">{title}</h3>
         <p className="text-gray-600 text-sm">{description}</p>
       </div>
     </div>
@@ -66,15 +66,16 @@ const BenefitsSection: React.FC = () => {
   ];
 
   return (
-    <section id="benefits_n_perks" className="py-24 bg-blue-50 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
+    <section id="benefits_n_perks" className="mt-24 bg-white relative overflow-hidden ">
+      {/* <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-0 w-64 h-64 bg-blue-300 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-teal-300 rounded-full transform translate-x-1/2 translate-y-1/2"></div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Benefits & Perks</h2>
+          <div className="w-24 h-1 bg-blue-600 mb-4 mx-auto rounded-full"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We invest in our team&apos;s well-being and success both in and outside of work.
           </p>

@@ -70,6 +70,7 @@ const ApplicationProcess: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Application Process</h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto mb-4  rounded-full"></div>
             <p className="text-xl text-gray-600">
               We&apos;ve designed a straightforward process to help us find the right candidates while giving you
               insight into our company.

@@ -24,13 +24,9 @@ export default function ServiceCard({ icon, title, description, className, varia
       )}
     >
       <div className="flex items-start">
-        <div className={cn("flex-shrink-0 mr-5 p-3 rounded-lg", variant === "product" ? "bg-blue-50" : "bg-gray-50")}>
-          {icon}
-        </div>
+        <div className={cn("flex-shrink-0 mr-5 p-3 rounded-lg", "bg-blue-50")}>{icon}</div>
         <div>
-          <h3 className={cn("text-lg font-semibold mb-2", variant === "product" ? "text-blue-800" : "text-gray-800")}>
-            {title}
-          </h3>
+          <h3 className={cn("text-lg font-semibold mb-2", "text-blue-800")}>{title}</h3>
           <p className="text-gray-600 leading-relaxed">{description}</p>
         </div>
       </div>

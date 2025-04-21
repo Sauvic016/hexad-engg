@@ -40,7 +40,7 @@ export default function SlickSlider() {
 
     {
       id: 5,
-      image: "/IMG_7989.WEBP",
+      image: "/IMG_8009.JPG",
       title: "Power",
       link: "/our-expertise#power",
     },

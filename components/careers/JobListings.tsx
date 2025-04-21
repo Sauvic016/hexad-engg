@@ -92,10 +92,11 @@ const JobListings: React.FC = () => {
   });
 
   return (
-    <section id="open-positions" className="py-24 bg-white">
+    <section id="open-positions" className="pt-24 pb-4 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Open Positions</h2>
+          <div className="w-24 h-1 bg-blue-600 mb-4 mx-auto rounded-full"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Join our team of passionate individuals working to make a difference.
           </p>

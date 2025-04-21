@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { Code2, Server } from "lucide-react";
+import Link from "next/link";
 
 const Whatwedo = () => {
   return (
@@ -27,7 +28,9 @@ const Whatwedo = () => {
               seamlessly. We combine creativity, strategy, and technical precision to bring ideas to life—turning
               concepts into impactful, market-ready products that people love to use.
             </p>
-            <Button variant="outline">Learn More</Button>
+            <Link href={"/what-we-do#product-design"}>
+              <Button variant="outline">Learn More</Button>
+            </Link>
           </div>
 
           {/* Video content - second on mobile, right on desktop */}
@@ -57,7 +60,9 @@ const Whatwedo = () => {
               design to execution—we optimize performance, ensure safety, and reduce downtime across every stage of
               operation.
             </p>
-            <Button variant="outline">Learn More</Button>
+            <Link href={"/what-we-do#plant-engineering"}>
+              <Button variant="outline">Learn More</Button>
+            </Link>
           </div>
 
           {/* Video content - second on mobile, left on desktop */}

@@ -13,12 +13,11 @@ const HeroSection: React.FC = () => {
           alt="Modern office space with team collaboration"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-blue-900/70"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Transforming Ideas into <span className="text-blue-400">Reality</span>
+          Transforming Ideas into <span className="text-brand-primary">Reality</span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
           We&apos;re a team of innovators, dreamers, and doers committed to building technology that shapes the future.

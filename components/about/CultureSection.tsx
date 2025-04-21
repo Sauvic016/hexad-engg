@@ -14,7 +14,7 @@ interface ValueCardProps {
 const ValueCard: React.FC<ValueCardProps> = ({ icon, title, description }) => {
   return (
     <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col items-center text-center">
-      <div className="bg-blue-100 p-3 rounded-full mb-4 text-blue-600">{icon}</div>
+      <div className="bg-gray-300 p-3 rounded-full mb-4 text-gray-900">{icon}</div>
       <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
@@ -60,6 +60,8 @@ const CultureSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Culture & Values</h2>
+          <div className="w-24 h-1 mb-4 bg-blue-600 mx-auto rounded-full"></div>
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We&apos;ve built a culture that encourages creativity, embraces diversity, and drives innovation.
           </p>
@@ -71,15 +73,15 @@ const CultureSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-20 bg-blue-600 rounded-2xl overflow-hidden shadow-xl">
+        <div className="mt-20 bg-white rounded-2xl overflow-hidden shadow-xl">
           <div className="grid md:grid-cols-2">
             <div className="p-8 md:p-12 flex flex-col justify-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">Life at Our Company</h3>
-              <p className="text-blue-100 mb-6">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-brand-primary">Life at Our Company</h3>
+              <p className="text-gray-600 mb-6">
                 Our dynamic work environment balances professional growth with personal well-being. We work hard
                 together, celebrate our wins, and prioritize work-life harmony.
               </p>
-              <p className="text-blue-100">
+              <p className="text-gray-600">
                 From team-building events and community service to innovation days and continuous learning
                 opportunities, we invest in creating a workplace where you can thrive.
               </p>

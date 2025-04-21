@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function CareersCTA() {
   return (
-    <section className="mx-auto max-w-6xl pb-8 md:pb-12 lg:pb-16 mt-12">
-      <div className="container px-4 md:px-6">
+    <section className="mx-10 md:mx-30 pb-8 md:pb-12 lg:pb-16 mt-12 bg-gray-50">
+      <div className="w-full bg-gray-50">
         <div className="relative overflow-hidden rounded-3xl">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/70 via-blue-700/20 to-teal-500/20" />
           <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.5))] dark:bg-grid-white/5" />

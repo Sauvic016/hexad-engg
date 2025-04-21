@@ -14,16 +14,15 @@ const HeroSection: React.FC = () => {
           width={1920}
           height={1260}
           alt="Team collaborating at a modern office"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover "
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-blue-900/70"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Join Our Mission to <span className="text-blue-400">Transform</span> the Future
+          Join the Mission to <span className="text-brand-primary">Transform</span> the Future
         </h1>
-        <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+        <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">
           We&apos;re building something extraordinary, and we need exceptional people like you to make it happen.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -41,20 +40,6 @@ const HeroSection: React.FC = () => {
             Discover Our Culture
           </a>
         </div>
-      </div>
-
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
-        <Link href="#benefits_n_perks" className="text-white opacity-80 hover:opacity-100">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </Link>
       </div>
     </section>
   );
