@@ -5,33 +5,33 @@ import Image from "next/image";
 const faqData = [
   {
     id: "service-types",
-    question: "What types of engineering services do you offer?",
+    question: "What are the key benefits of working with Hexad Engineering?",
     answer:
-      "We offer a comprehensive range of engineering services including mechanical engineering, electrical engineering, civil engineering, software development, web and app development, and specialized analysis services. Our multidisciplinary approach allows us to tackle complex projects across various industries.",
+      "Hexad delivers high-quality, North America-focused engineering solutions with speed, precision, and deep industry insight—powered by a team that truly understands your market.",
   },
   {
     id: "quality-assurance",
-    question: "How do you ensure the quality of your services?",
+    question: "Why is Hexad Engineering the right partner for your engineering needs?",
     answer:
-      "Quality is at the core of everything we do. We follow industry best practices, employ rigorous testing and validation procedures, and maintain strict quality control throughout the project lifecycle. Our team consists of highly qualified professionals who are experts in their respective fields.",
+      " We’re founded by engineers who’ve walked in your shoes—our experience, agility, and client-first mindset make us a seamless extension of your team.",
   },
   {
     id: "industries-served",
-    question: "What industries do you serve?",
+    question: "What sets Hexad Engineering apart from other engineering service providers?",
     answer:
-      "We work with clients across a wide range of industries including manufacturing, automotive, aerospace, energy, healthcare, IT, and consumer products. Our diverse expertise allows us to understand the unique challenges and requirements of different sectors.",
+      "Unlike generic firms, Hexad is laser-focused on the North American market with a niche, senior-led team that blends innovation with practical design thinking.",
   },
   {
     id: "project-timeline",
-    question: "How long does a typical project take?",
+    question: "Why do clients trust Hexad Engineering for their projects?",
     answer:
-      "Project timelines vary depending on the scope, complexity, and specific requirements. During our initial consultation, we'll assess your needs and provide a detailed project plan with realistic timelines. We pride ourselves on meeting deadlines while maintaining the highest quality standards.",
+      "Our roots in the industry, transparent communication, and proven track record give clients confidence that we’ll deliver—every time.",
   },
   {
     id: "customized-solutions",
-    question: "Do you offer customized solutions?",
+    question: "How does Hexad Engineering add value to your projects?",
     answer:
-      "Absolutely! We believe in tailoring our solutions to meet each client's unique needs. We work closely with you to understand your specific requirements and challenges, then develop customized solutions that address those needs effectively and efficiently.",
+      "We move fast, think ahead, and tailor every solution to your exact goals—turning complex challenges into elegant, efficient designs.",
   },
   {
     id: "getting-started",
@@ -64,7 +64,7 @@ const FAQSection = () => {
           </div>
         </div>
 
-        <div className="max-w-4xl ">
+        <div className="max-w-4xl w-full md:w-1/2 ">
           <Accordion type="single" collapsible className="space-y-4">
             {faqData.map((faq) => (
               <AccordionItem
@@ -72,10 +72,10 @@ const FAQSection = () => {
                 value={faq.id}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-sm px-6"
               >
-                <AccordionTrigger className="text-sm md:text-md xl:text-lg font-medium py-5">
+                <AccordionTrigger className="text-sm md:text-md xl:text-lg font-medium ">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-2 xl:pb-5">{faq.answer}</AccordionContent>
+                <AccordionContent className="text-muted-foreground ">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

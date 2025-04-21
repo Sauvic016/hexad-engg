@@ -13,7 +13,7 @@ export default function SlickSlider() {
       id: 1,
       image: "/IMG_7983.JPG",
       title: "Water Treatment",
-      link: "/services/water-treatment",
+      link: "/our-expertise#water-treatment",
     },
 
     {
@@ -21,35 +21,35 @@ export default function SlickSlider() {
       image: "/IMG_7985.JPG",
 
       title: "Industrial Automation",
-      link: "/services/industrial-automation",
+      link: "/our-expertise#industrial-automation",
     },
     {
       id: 3,
       image: "/IMG_7986.JPG",
 
       title: "Oil & Gas",
-      link: "/services/oil-gas",
+      link: "/our-expertise#oil-gas",
     },
     {
       id: 4,
 
       image: "/IMG_7987.WEBP",
       title: "Utilities",
-      link: "/services/utilities",
+      link: "/our-expertise#utilities",
     },
 
     {
       id: 5,
       image: "/IMG_7989.WEBP",
       title: "Power",
-      link: "/services/power",
+      link: "/our-expertise#power",
     },
     {
       id: 6,
 
       image: "/IMG_7991.JPG",
       title: "Power Distribution Equipments",
-      link: "/services/power-distribution-equipment",
+      link: "/our-expertise#power-distribution-equipment",
     },
   ];
 

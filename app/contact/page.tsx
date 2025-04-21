@@ -1,9 +1,10 @@
 import React from "react";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+// import Image from "next/image";
 
 export const metadata = {
   title: "Contact Us - HEXAD Engineering",
@@ -12,210 +13,173 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="max-w-full container mx-auto">
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
-        <section className="relative py-20 overflow-hidden">
-          <div className="container mx-auto px-4 relative">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-blue-500">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-24">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
+          <div className="flex flex-col  space-y-4">
+            <div className="space-y-2">
+              <h1 className="text-3xl text-black font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                 Get in Touch
               </h1>
-              <p className="text-xl text-muted-foreground">
-                We&apos;d love to hear from you. Reach out to us for any inquiries about our engineering services.
+              <p className="max-w-[600px] text-zinc-500 md:text-xl dark:text-zinc-400">
+                We&apos;d love to hear from you. Our team is always ready to connect and assist with your inquiries.
               </p>
             </div>
-          </div>
-        </section>
-
-        <section className="py-8 mx-20">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-1 space-y-6">
-                <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-2">Visit Us</h3>
-                      <div className="flex ">
-                        <p className="text-muted-foreground">
-                          Ground Floor,E1 Block (Beech),
-                          <br />
-                          Manyata Embassy Business Park, Outer Ring Road, Bangalore
-                          <br />
-                          560045, India.
-                        </p>
-                      </div>
-                    </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              <Card className="border-none shadow-sm bg-white dark:bg-zinc-800">
+                <CardHeader className="">
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-5 w-5 text-zinc-500" />
+                    <CardTitle className="text-base">Email</CardTitle>
                   </div>
-                </Card>
-
-                <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-2">Call Us</h3>
-                      <div className="mb-2 last:mb-0">
-                        <p className="text-sm text-muted-foreground"> Office Phone</p>
-                        <p className="text-foreground">+91-9577291349 </p>
-                      </div>
-                    </div>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-zinc-900 dark:text-zinc-100">info@hexadengg.com</CardDescription>
+                </CardContent>
+              </Card>
+              <Card className="border-none shadow-sm bg-white dark:bg-zinc-800">
+                <CardHeader className="">
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-5 w-5 text-zinc-500" />
+                    <CardTitle className="text-base">Phone</CardTitle>
                   </div>
-                </Card>
-
-                <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-2">Email Us</h3>
-                      <a
-                        href="mailto:info@HEXADeng.com"
-                        className="text-blue-600 hover:text-blue-700 transition-colors"
-                      >
-                        info@HEXADeng.com
-                      </a>
-                    </div>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-zinc-900 dark:text-zinc-100">+1 713 347 3054 </CardDescription>
+                </CardContent>
+              </Card>
+              <Card className="border-none shadow-sm bg-white dark:bg-zinc-800">
+                <CardHeader className="">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-5 w-5 text-zinc-500" />
+                    <CardTitle className="text-base">Office</CardTitle>
                   </div>
-                </Card>
-
-                {/* <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600">
-                      <Clock className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-2">Business Hours</h3>
-                      <div className="mb-2 last:mb-0">
-                        <p className="text-sm font-medium">Monday - Friday</p>
-                        <p className="text-muted-foreground">9:00 AM - 6:00 PM IST</p>
-                      </div>
-                      <div className="mb-2 last:mb-0">
-                        <p className="text-sm font-medium">Saturday</p>
-                        <p className="text-muted-foreground">9:00 AM - 1:00 PM IST</p>
-                      </div>
-                      <div className="mb-2 last:mb-0">
-                        <p className="text-sm font-medium">Sunday</p>
-                        <p className="text-muted-foreground">Closed</p>
-                      </div>
-                    </div>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-zinc-900 dark:text-zinc-100">
+                    Ground Floor, E1 Block (Beech) Manyata Embassy Business Park, Outer Ring Road, Bangalore-560045,
+                    India
+                  </CardDescription>
+                </CardContent>
+              </Card>
+              <Card className="border-none shadow-sm bg-white dark:bg-zinc-800">
+                <CardHeader className="">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-zinc-500" />
+                    <CardTitle className="text-base">Hours</CardTitle>
                   </div>
-                </Card> */}
-
-                <div className="flex gap-4">
-                  <a
-                    href="https://www.linkedin.com/company/HEXAD-eng-llp/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-4 rounded-xl bg-white dark:bg-gray-800 text-blue-600 shadow-lg hover:shadow-xl transition-all duration-200"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/invites/contact/?igsh=1sl54ksi67lea&utm_content=vzay5wm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-4 rounded-xl bg-white dark:bg-gray-800 text-blue-600 shadow-lg hover:shadow-xl transition-all duration-200"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-5 w-5" />
-                  </a>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-zinc-900 dark:text-zinc-100">
+                    Monday - Friday: 9AM - 6PM
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </div>
+            {/* <div className="relative h-[200px] overflow-hidden rounded-xl shadow-lg">
+              <div className="absolute inset-0 bg-zinc-900/10 dark:bg-zinc-900/40 z-10"></div>
+              <Image
+                src="/placeholder.svg?height=400&width=800"
+                alt="Office location map"
+                width={800}
+                height={400}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute bottom-4 left-4 z-20">
+                <div className="bg-white dark:bg-zinc-800 px-3 py-2 rounded-lg shadow-md">
+                  <p className="text-sm font-medium">Our Headquarters</p>
                 </div>
               </div>
-
-              <div className="lg:col-span-2">
-                <Card className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg ">
-                  <h3 className="font-semibold text-lg mb-6">Send us a Message</h3>
-                  <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium mb-1 block" htmlFor="firstName">
-                          First Name
-                        </label>
-                        <Input id="firstName" placeholder="Enter your first name" className="w-full" />
-                      </div>
-                      <div>
-                        <label className="text-sm font-medium mb-1 block" htmlFor="lastName">
-                          Last Name
-                        </label>
-                        <Input id="lastName" placeholder="Enter your last name" className="w-full" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block" htmlFor="email">
-                        Email Address
-                      </label>
-                      <Input id="email" type="email" placeholder="Enter your email address" className="w-full" />
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block" htmlFor="company">
-                        Company Name
-                      </label>
-                      <Input id="company" placeholder="Enter your company name" className="w-full" />
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block" htmlFor="region">
-                        Region
-                      </label>
-                      <select
-                        id="region"
-                        className="w-full px-3 py-2 border border-input rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-background h-10"
-                      >
-                        <option value="">Select your region</option>
-                        <option value="asia">Asia</option>
-                        <option value="europe">Europe</option>
-                        <option value="north-america">North America</option>
-                        <option value="south-america">South America</option>
-                        <option value="africa">Africa</option>
-                        <option value="australia">Australia/Oceania</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block" htmlFor="service">
-                        Service
-                      </label>
-                      <select
-                        id="service"
-                        className="w-full px-3 py-2 border border-input rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-background h-10"
-                      >
-                        <option value="">Select a service</option>
-                        <option value="engineering">Engineering Services</option>
-                        <option value="design">Design Services</option>
-                        <option value="web-app">Web and App Development</option>
-                        <option value="analysis">Analysis Services</option>
-                        <option value="development">Development Services</option>
-                        <option value="other">Other Services</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium mb-1 block" htmlFor="message">
-                        Message
-                      </label>
-                      <Textarea id="message" placeholder="Enter your message here" className="w-full h-32" />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full py-2 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-medium hover:from-blue-700 hover:to-cyan-700 transition-all duration-200"
-                    >
-                      Send Message
-                    </Button>
-                  </form>
-                </Card>
-              </div>
-            </div>
+            </div> */}
           </div>
-        </section>
+
+          <div className="flex flex-col gap-4">
+            <Card className="border-none shadow-lg bg-white dark:bg-zinc-800">
+              <CardHeader>
+                <CardTitle className="text-2xl ">Send us a message</CardTitle>
+                <CardDescription>
+                  Fill out the form below and we&apos;ll get back to you as soon as possible.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form className="grid gap-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="first-name"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        First name
+                      </label>
+                      <Input
+                        id="first-name"
+                        placeholder="John"
+                        className="border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="last-name"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Last name
+                      </label>
+                      <Input
+                        id="last-name"
+                        placeholder="Doe"
+                        className="border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      placeholder="john.doe@example.com"
+                      type="email"
+                      className="border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="subject"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Subject
+                    </label>
+                    <Input
+                      id="subject"
+                      placeholder="How can we help you?"
+                      className="border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Message
+                    </label>
+                    <Textarea
+                      id="message"
+                      placeholder="Tell us what you need assistance with..."
+                      className="min-h-[150px] border-zinc-200 focus:border-zinc-400 focus:ring-zinc-400"
+                    />
+                  </div>
+                  <Button className="w-full group bg-brand-primary text-white">
+                    Send Message
+                    <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
     </div>
   );

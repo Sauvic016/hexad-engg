@@ -3,12 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
@@ -58,49 +53,8 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
             <NavItem href="/" label="Home" pathname={pathname} />
             {/* <NavItem href="/about" label="Who We Are" pathname={pathname} /> */}
             <NavItem href="/about" label="About us" pathname={pathname} />
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="group relative flex items-center gap-2 py-2 text-base font-medium transition-colors duration-200 text-muted-foreground hover:text-foreground"
-                >
-                  <span>Our Expertise</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center">
-                <DropdownMenuItem>
-                  <Link href="/services/1" className="w-full">
-                    Engineering Services
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/2" className="w-full">
-                    Design Services
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/3" className="w-full">
-                    Web and App Development
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/4" className="w-full">
-                    Analysis Services
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/5" className="w-full">
-                    Development Services
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/6" className="w-full">
-                    Other Services
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <NavItem href="/whatwedo" label="What We Do" pathname={pathname} />
+            <NavItem href="/our-expertise" label="Our Expertise" pathname={pathname} />
+            <NavItem href="/what-we-do" label="What We Do" pathname={pathname} />
             <NavItem href="/careers" label="Careers" pathname={pathname} />
             <NavItem href="/contact" label="Contact" pathname={pathname} />
           </div>

@@ -158,17 +158,17 @@ const Footer = () => {
             <h3 className="text-lg font-medium">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#about" className="text-muted-foreground hover:text-foreground">
+                <Link href="/about" className="text-muted-foreground hover:text-foreground">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#careers" className="text-muted-foreground hover:text-foreground">
+                <Link href="/careers" className="text-muted-foreground hover:text-foreground">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="/what-we-do" className="text-muted-foreground hover:text-foreground">
                   What We Do
                 </Link>
               </li>
@@ -183,10 +183,10 @@ const Footer = () => {
             <h3 className="text-lg font-medium">Contact</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <p className="text-muted-foreground">Email: mail@hexad.com</p>
+                <p className="text-muted-foreground">Email: info@hexadengg.com</p>
               </li>
               <li>
-                <p className="text-muted-foreground">Phone: +912345678923</p>
+                <p className="text-muted-foreground">Phone: +1 713 347 3054 </p>
               </li>
 
               <li>
