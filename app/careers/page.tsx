@@ -1,10 +1,14 @@
 import React from "react";
 import HeroSection from "@/components/careers/HeroSection";
-// import CultureSection from "@/components/careers/CultureSection";
 import BenefitsSection from "@/components/careers/BenefitsSection";
 import JobListings from "@/components/careers/JobListings";
-// import Testimonials from "@/components/careers/Testimonials";
+
 import ApplicationProcess from "@/components/careers/ApplicationProcess";
+
+export const metadata = {
+  title: "Careers - HEXAD Engineering",
+  description: "Work at Hexad Engineering",
+};
 
 const CareersPage: React.FC = () => {
   return (

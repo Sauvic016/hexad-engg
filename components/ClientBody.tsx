@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 
@@ -13,113 +13,104 @@ import { Button } from "@/components/ui/button";
 export default function ClientBody({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  return (
-    <body>
-      {/* Mobile Sidebar */}
-      {sidebarOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          {/* Overlay */}
-          <div className="fixed inset-0 bg-black/50" onClick={() => setSidebarOpen(false)} />
+  // Add debug logging when sidebar state changes
+  useEffect(() => {
+    console.log("Sidebar open state:", sidebarOpen);
+  }, [sidebarOpen]);
 
-          {/* Sidebar Content */}
-          <div className="fixed right-0 top-0 bottom-0 w-[280px] bg-background p-6 shadow-xl">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-lg font-semibold">Menu</h2>
-              <Button variant="ghost" size="icon" onClick={() => setSidebarOpen(false)}>
-                <X className="h-5 w-5" />
+  // Function to handle menu button click
+  const handleMenuClick = () => {
+    console.log("Menu button clicked in ClientBody");
+    setSidebarOpen((prev) => !prev);
+  };
+
+  return (
+    <body className="overflow-x-hidden">
+      {/* Overlay when sidebar is open */}
+      <div
+        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 md:hidden ${
+          sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setSidebarOpen(false)}
+      />
+
+      {/* Mobile Sidebar - simplified version */}
+      <div
+        className={`fixed top-0 right-0 h-full z-100 md:hidden transition-transform duration-300 ${
+          sidebarOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="h-screen w-[280px] sm:w-[320px] bg-white shadow-xl flex flex-col">
+          <div className="h-20 pt-4 px-4 flex-shrink-0  border-b">
+            <div className="pl-2 text-xl font-semibold justify-between flex items-center pt-1 text-brand-primary">
+              Menu
+              <Button variant="ghost" className="p-2 h-auto w-auto" onClick={() => setSidebarOpen(false)}>
+                <X className="h-10 w-10" />
               </Button>
             </div>
-            <nav className="space-y-6">
+          </div>
+
+          <div className="flex-1 overflow-y-auto p-4">
+            <nav className="space-y-4 flex flex-col items-center">
               <Link
                 href="/"
-                className="block text-lg font-medium hover:text-primary"
+                className="flex items-center p-2 hover:bg-gray-100 rounded-md"
                 onClick={() => setSidebarOpen(false)}
               >
-                Home
+                <span>Home</span>
               </Link>
+
               <Link
                 href="/about"
-                className="block text-lg font-medium hover:text-primary"
+                className="flex items-center p-2 hover:bg-gray-100 rounded-md"
                 onClick={() => setSidebarOpen(false)}
               >
-                About
+                <span>About</span>
               </Link>
+
               <Link
-                href="/contact"
-                className="block text-lg font-medium hover:text-primary"
+                href="/our-expertise"
+                className="flex items-center p-2 hover:bg-gray-100 rounded-md"
                 onClick={() => setSidebarOpen(false)}
               >
-                Contact
+                <span>Our Expertise</span>
               </Link>
+
+              <Link
+                href="/what-we-do"
+                className="flex items-center p-2 hover:bg-gray-100 rounded-md"
+                onClick={() => setSidebarOpen(false)}
+              >
+                <span>What we do</span>
+              </Link>
+
               <Link
                 href="/careers"
-                className="block text-lg font-medium hover:text-primary"
+                className="flex items-center p-2 hover:bg-gray-100 rounded-md"
                 onClick={() => setSidebarOpen(false)}
               >
-                Careers
+                <span>Careers</span>
               </Link>
+
               <Link
-                href="/blogs"
-                className="block text-lg font-medium hover:text-primary"
+                href="/contact"
+                className="flex items-center p-2 hover:bg-gray-100 rounded-md"
                 onClick={() => setSidebarOpen(false)}
               >
-                Blogs
+                <span>Contact</span>
               </Link>
-              <div className="pt-2 border-t">
-                <h3 className="text-lg font-medium mb-4">Services</h3>
-                <div className="space-y-3 pl-2">
-                  <Link
-                    href="/services/1"
-                    className="block text-md text-muted-foreground hover:text-primary"
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    Engineering Services
-                  </Link>
-                  <Link
-                    href="/services/2"
-                    className="block text-md text-muted-foreground hover:text-primary"
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    Design Services
-                  </Link>
-                  <Link
-                    href="/services/3"
-                    className="block text-md text-muted-foreground hover:text-primary"
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    Web and App Development
-                  </Link>
-                  <Link
-                    href="/services/4"
-                    className="block text-md text-muted-foreground hover:text-primary"
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    Analysis Services
-                  </Link>
-                  <Link
-                    href="/services/5"
-                    className="block text-md text-muted-foreground hover:text-primary"
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    Development Services
-                  </Link>
-                  <Link
-                    href="/services/6"
-                    className="block text-md text-muted-foreground hover:text-primary"
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    Other Services
-                  </Link>
-                </div>
-              </div>
+
+              <div className="my-2 border-t border-gray-200"></div>
             </nav>
           </div>
         </div>
-      )}
+      </div>
 
-      <Navbar onMenuClick={() => setSidebarOpen(true)} />
-      <main className="min-h-screen">{children}</main>
-      <Footer />
+      <div className="flex flex-col min-h-screen">
+        <Navbar onMenuClick={handleMenuClick} />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
       <Toaster />
     </body>
   );

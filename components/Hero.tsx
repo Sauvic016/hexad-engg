@@ -16,7 +16,8 @@ const Hero = () => {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-        ></video>
+        >
+        </video>
       </div>
 
       <div className="container  relative z-10 mx-auto px-4 h-full flex flex-col justify-center">
@@ -25,19 +26,20 @@ const Hero = () => {
             Transform Industries
             <br />
             with
-            <span className="text-brand-primary font-extrabold"> HEXAD</span>
+            <span className="text-brand-primary font-extrabold">HEXAD</span>
           </h1>
 
           <p className="text-lg font-semibold md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto text-white">
             From product innovation to infrastructure development
             <br /> we bring vision to reality.
           </p>
-          <div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            // transition={{ duration: 0.5, delay: 0.4 }}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4"// transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Link href="/what-we-do" className="hidden sm:block">
-              <Button size="lg" className="bg-brand-primary hover:bg-brand-primary text-white cursor-pointer">
+            <Link href="/what-we-do" className="">
+              <Button
+                size="lg"
+                className="bg-brand-primary hover:bg-brand-primary text-white cursor-pointer"
+              >
                 Explore Services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

@@ -1,10 +1,6 @@
-// import Image from "next/image";
-// import { Users, Target, Eye, Shield, Award, Lightbulb } from "lucide-react";
 import HeroSection from "@/components/about/HeroSection";
 import MissionSection from "@/components/about/MissionSection";
-// import LeadershipSection from "@/components/about/Leadership";
 import CultureSection from "@/components/about/CultureSection";
-// import Image from "next/image";
 import CareersCTA from "@/components/about/CTA";
 
 export const metadata = {

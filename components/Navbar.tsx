@@ -39,35 +39,59 @@ interface NavbarProps {
 const Navbar = ({ onMenuClick }: NavbarProps) => {
   const pathname = usePathname();
 
+  const handleMenuClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("Navbar menu button clicked");
+    if (onMenuClick) {
+      onMenuClick();
+    }
+  };
+
   return (
     <nav className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4">
+      <div className="md:container md:mx-auto px-4">
         <div className="flex h-20 justify-between items-center">
           <div className="flex">
-            <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
-              <Image src="/logo.png" alt="HEXAD Engineering LLP" width={145} height={50} priority />
+            <Link
+              href="/"
+              className="flex items-center gap-2 transition-opacity hover:opacity-90"
+            >
+              <Image
+                src="/logo.png"
+                alt="HEXAD Engineering LLP"
+                width={145}
+                height={50}
+                priority
+              />
             </Link>
           </div>
 
-          <div className="hidden lg:flex w-full items-center justify-center gap-10">
+          <div className="hidden md:flex w-full items-center justify-end lg:justify-center gap-4 lg:gap-10  ">
             <NavItem href="/" label="Home" pathname={pathname} />
             {/* <NavItem href="/about" label="Who We Are" pathname={pathname} /> */}
             <NavItem href="/about" label="About us" pathname={pathname} />
-            <NavItem href="/our-expertise" label="Our Expertise" pathname={pathname} />
-            <NavItem href="/what-we-do" label="What We Do" pathname={pathname} />
+            <NavItem
+              href="/our-expertise"
+              label="Our Expertise"
+              pathname={pathname}
+            />
+            <NavItem
+              href="/what-we-do"
+              label="What We Do"
+              pathname={pathname}
+            />
             <NavItem href="/careers" label="Careers" pathname={pathname} />
             <NavItem href="/contact" label="Contact" pathname={pathname} />
           </div>
 
-          <div className="lg:hidden flex-1 flex items-center justify-end gap-4">
+          <div className="md:hidden flex-1 flex items-center justify-end gap-4">
             <Button
-              variant="ghost"
-              size="icon"
               aria-label="Toggle menu"
-              className="lg:hidden p-2 rounded-md transition-colors duration-200 text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-              onClick={onMenuClick}
+              className="md:hidden rounded-md transition-colors duration-200 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-auto w-auto bg-transparent"
+              onClick={handleMenuClick}
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-14 w-14 text-black" />
             </Button>
           </div>
         </div>

@@ -1,16 +1,14 @@
 import React from "react";
 import ProductsBanner from "@/components/expertise/ExpertiseBanner";
 import ExpertiseCard from "@/components/expertise/ExpertiseCard";
-import {
-  Cpu,
-  Droplet,
-  Gauge,
-  Lightbulb,
-  PanelTop,
-  ZapIcon,
-} from "lucide-react";
+import { Cpu, Droplet, Gauge, Lightbulb, PanelTop, ZapIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Our Expertise - HEXAD Engineering",
+  description: "Get to know about the industries we provide solutions",
+};
 
 const Products: React.FC = () => {
   const productSections = [
@@ -64,26 +62,22 @@ const Products: React.FC = () => {
       title: "Power Distribution Equipment",
       description: (
         <>
-          At Hexad, we specialize in delivering high-quality, reliable power
-          distribution equipment designed to ensure safe and efficient energy
-          flow across your electrical network. From substations to end-use
-          delivery points, our equipment supports the backbone of modern power
-          systems with precision and performance.
+          At Hexad, we specialize in delivering high-quality, reliable power distribution equipment designed to ensure
+          safe and efficient energy flow across your electrical network. From substations to end-use delivery points,
+          our equipment supports the backbone of modern power systems with precision and performance.
           <p className="mt-4">Our offerings include:</p>
           <ol className="list-decimal pl-5 mt-2 space-y-2">
             <li>
-              <strong>Medium and Low Voltage Switchgear</strong>{" "}
-              – Engineered for durability and safety in demanding environments.
+              <strong>Medium and Low Voltage Switchgear</strong> – Engineered for durability and safety in demanding
+              environments.
             </li>
             <li>
-              <strong>Distribution Transformers</strong>{" "}
-              – High-efficiency transformers tailored to meet specific voltage
-              requirements.
+              <strong>Distribution Transformers</strong> – High-efficiency transformers tailored to meet specific
+              voltage requirements.
             </li>
             <li>
-              <strong>Control Panels and Relay Systems</strong>{" "}
-              – Intelligent controls for monitoring and managing electrical
-              distribution.
+              <strong>Control Panels and Relay Systems</strong> – Intelligent controls for monitoring and managing
+              electrical distribution.
             </li>
           </ol>
         </>
@@ -99,13 +93,10 @@ const Products: React.FC = () => {
       <ProductsBanner />
 
       <div id="products-section" className="container mx-auto px-4 mt-24 ">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Our Industry Solutions
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Our Industry Solutions</h2>
         <div className="w-24 h-1 bg-blue-600 mx-auto mb-4  rounded-full"></div>
         <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-16">
-          Engineering excellence across sectors that power modern infrastructure
-          and industry
+          Engineering excellence across sectors that power modern infrastructure and industry
         </p>
 
         <div className="grid grid-cols-1 gap-12 md:gap-16 mx-auto max-w-6xl">
@@ -125,12 +116,9 @@ const Products: React.FC = () => {
 
       <div className="bg-white text-brand-primary py-16 mx-5 lg:mx-20 shadow-lg  rounded-2xl my-8">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Transform Your Operations?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Operations?</h2>
           <p className="max-w-2xl mx-auto mb-8 text-gray-700">
-            Partner with Hexad for innovative engineering solutions tailored to
-            your industry needs
+            Partner with Hexad for innovative engineering solutions tailored to your industry needs
           </p>
           <Link href={"/contact"}>
             <Button className="cursor-pointer px-8 py-3 bg-black text-white rounded-md text-md font-medium  transition-colors">
