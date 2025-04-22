@@ -42,7 +42,6 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
   const handleMenuClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log("Navbar menu button clicked");
     if (onMenuClick) {
       onMenuClick();
     }
@@ -53,17 +52,8 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
       <div className="md:container md:mx-auto px-4">
         <div className="flex h-20 justify-between items-center">
           <div className="flex">
-            <Link
-              href="/"
-              className="flex items-center gap-2 transition-opacity hover:opacity-90"
-            >
-              <Image
-                src="/logo.png"
-                alt="HEXAD Engineering LLP"
-                width={145}
-                height={50}
-                priority
-              />
+            <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
+              <Image src="/logo.png" alt="HEXAD Engineering LLP" width={145} height={50} priority />
             </Link>
           </div>
 
@@ -71,16 +61,8 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
             <NavItem href="/" label="Home" pathname={pathname} />
             {/* <NavItem href="/about" label="Who We Are" pathname={pathname} /> */}
             <NavItem href="/about" label="About us" pathname={pathname} />
-            <NavItem
-              href="/our-expertise"
-              label="Our Expertise"
-              pathname={pathname}
-            />
-            <NavItem
-              href="/what-we-do"
-              label="What We Do"
-              pathname={pathname}
-            />
+            <NavItem href="/our-expertise" label="Our Expertise" pathname={pathname} />
+            <NavItem href="/what-we-do" label="What We Do" pathname={pathname} />
             <NavItem href="/careers" label="Careers" pathname={pathname} />
             <NavItem href="/contact" label="Contact" pathname={pathname} />
           </div>

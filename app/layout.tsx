@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import ClientBody from "@/components/ClientBody";
 import "./globals.css";
 
@@ -18,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <ClientBody>{children}</ClientBody>
+      <body>
+        <ClientBody>{children}</ClientBody>
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

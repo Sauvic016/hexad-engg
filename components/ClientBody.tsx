@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 
@@ -14,18 +14,14 @@ export default function ClientBody({ children }: { children: React.ReactNode }) 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Add debug logging when sidebar state changes
-  useEffect(() => {
-    console.log("Sidebar open state:", sidebarOpen);
-  }, [sidebarOpen]);
 
   // Function to handle menu button click
   const handleMenuClick = () => {
-    console.log("Menu button clicked in ClientBody");
     setSidebarOpen((prev) => !prev);
   };
 
   return (
-    <body className="overflow-x-hidden">
+    <div className="overflow-x-hidden">
       {/* Overlay when sidebar is open */}
       <div
         className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 md:hidden ${
@@ -112,6 +108,6 @@ export default function ClientBody({ children }: { children: React.ReactNode }) 
         <Footer />
       </div>
       <Toaster />
-    </body>
+    </div>
   );
 }
