@@ -1,6 +1,6 @@
 import React from "react";
 import HeroSection from "@/components/careers/HeroSection";
-import BenefitsSection from "@/components/careers/BenefitsSection";
+// import BenefitsSection from "@/components/careers/BenefitsSection";
 import JobListings from "@/components/careers/JobListings";
 
 import ApplicationProcess from "@/components/careers/ApplicationProcess";
@@ -16,7 +16,7 @@ const CareersPage: React.FC = () => {
       <main className="flex-grow">
         <HeroSection />
         {/* <CultureSection /> */}
-        <BenefitsSection />
+        {/* <BenefitsSection /> */}
         <JobListings />
         {/* <Testimonials /> */}
         <ApplicationProcess />
