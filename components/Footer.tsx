@@ -83,7 +83,11 @@ const Footer = () => {
               <Twitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>
-            <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link
+              target="_blank"
+              href={process.env.NEXT_PUBLIC_LINKEDIN_URL!}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
