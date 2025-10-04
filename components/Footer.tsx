@@ -61,8 +61,8 @@ const Footer = () => {
             <li>
               <p className="text-muted-foreground">Phone: +1 713 347 3054</p>
             </li>
-            <li>
-              <p className="text-muted-foreground">
+            <li className="text-muted-foreground space-y-2">
+              {/* <p className="text-muted-foreground">
                 Ground Floor, E1 Block (Beech),
                 <br />
                 Manyata Embassy Business Park,
@@ -70,7 +70,12 @@ const Footer = () => {
                 Outer Ring Road, Bangalore
                 <br />
                 560045, India.
+              </p> */}
+              <p>
+                Operational address: 22nd Floor, World Trade Center, 26/1, Brigade Gateway, Bengaluru, Karnataka,
+                560055, India
               </p>
+              <p>Registered address: 164, Yelahanka, Bengaluru, Karnataka, 560064, India</p>
             </li>
           </ul>
         </div>

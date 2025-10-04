@@ -55,10 +55,14 @@ export default function ContactPage() {
                     <CardTitle className="text-base">Office</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-zinc-900 dark:text-zinc-100">
-                    Ground Floor, E1 Block (Beech) Manyata Embassy Business Park, Outer Ring Road, Bangalore-560045,
-                    India
+                <CardContent className="space-y-2 ">
+                  <CardDescription className="text-zinc-700 dark:text-zinc-100 rounded-xl p-2 ">
+                    <b> Operational address</b>: 22nd Floor, World Trade Center, 26/1, Brigade Gateway, Bengaluru,
+                    Karnataka, 560055, India
+                  </CardDescription>
+
+                  <CardDescription className="text-zinc-700 dark:text-zinc-100 rounded-xl p-2">
+                    <b>Registered address </b>: 164, Yelahanka, Bengaluru, Karnataka, 560064, India
                   </CardDescription>
                 </CardContent>
               </Card>
