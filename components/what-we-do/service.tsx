@@ -14,11 +14,6 @@ const container = {
   },
 };
 
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
-
 const services = [
   {
     section: "Product Design",
@@ -79,29 +74,103 @@ const services = [
     color: "from-gray-700 to-gray-900",
     items: [
       {
-        icon: <Image src="/icons/Piping_Icon.webp" alt="Civil_Structural" width={20} height={20} />,
+        icon: <Image src="/icons/Piping_Icon.webp" alt="piping" width={20} height={20} />,
         title: "Piping",
-        description: "Comprehensive piping design and implementation for industrial facilities.",
+        description: (
+          <>
+            <ul className="list-disc pl-4 space-y-1 text-sm">
+              <li>P&ID drafting​</li>
+              <li>Pipe Routing & Equipment modeling​</li>
+              <li>GA / Layout​</li>
+              <li>Isometrics & Spool Drawing​</li>
+              <li>Material Take-off​</li>
+              <li>Pipe Support design & detailing​</li>
+              <li>Stress Analysis​</li>
+              <li>Review & validation of-stress Reports</li>
+            </ul>
+          </>
+        ),
       },
       {
         icon: <Zap className="" />,
         title: "Electrical",
-        description: "Full-service electrical engineering from planning to installation and maintenance.",
+        description: (
+          <>
+            <ul className="list-disc pl-4 space-y-1 text-sm">
+              <li>3D Modeling of Cable Tray</li>
+              <li>SLD &amp; 3 Line</li>
+              <li>MCC &amp; SWGR Schematics</li>
+              <li>Specification &amp; Datasheet</li>
+              <li>Panel GA (Internal &amp; External)</li>
+              <li>Cable Schedule</li>
+              <li>Cable &amp; Cable Tray Sizing</li>
+              <li>Cable Tray &amp; Equipment Layouts</li>
+              <li>Lighting Calculation &amp; Layout</li>
+              <li>Earthing &amp; Lightning Design</li>
+              <li>BOM</li>
+              <li>
+                Power System Study - Short Circuit Study, Load Flow Study, Earthing Study, Relay Coordination Study,
+                Grid Code Compliance, Arc Flash Study
+              </li>
+            </ul>
+          </>
+        ),
       },
       {
         icon: <Image src="/icons/MechanicalIcon.png" alt="Civil_Structural" width={20} height={20} />,
         title: "Mechanical",
-        description: "Mechanical engineering solutions designed for durability and performance.",
+        description: (
+          <>
+            <ul className="list-disc pl-4 space-y-1 text-sm">
+              <li>Preparation of Design Specification &amp; Datasheets</li>
+              <li>Equipment Modeling</li>
+              <li>Base Frame Design &amp; Detailing</li>
+              <li>Shop / Fabrication Drawing</li>
+              <li>BOM</li>
+              <li>ASME Pressure Vessel Design (Sec VIII Div 1)</li>
+              <li>API Storage Tanks Design</li>
+              <li>Heat Exchangers</li>
+              <li>FEA Analysis</li>
+            </ul>
+          </>
+        ),
       },
       {
-        icon: <Image src="/icons/Instrumentation_icon.webp" alt="Instrumentation" width={20} height={20} />,
-        title: "Instrumentation",
-        description: "Precision instrumentation services for monitoring and control applications.",
+        icon: <Image src="/icons/Instrumentation_icon.webp" alt="Instrumentation and Control" width={20} height={20} />,
+        title: "Instrumentation & Control",
+        description: (
+          <>
+            <ul className="list-disc pl-4 space-y-1 text-sm">
+              <li>Instrument Specification &amp; Datasheet</li>
+              <li>Instrument Sizing &amp; Selection</li>
+              <li>Instrument List</li>
+              <li>Interconnection Cable Schedule</li>
+              <li>Location Layout</li>
+              <li>Control System Design</li>
+              <li>System Architecture</li>
+              <li>Schematics</li>
+              <li>Control Panel GA</li>
+              <li>Logic Diagram</li>
+              <li>Loop Drawing</li>
+              <li>(PLC, HMI &amp; SCADA) Programming Support</li>
+            </ul>
+          </>
+        ),
       },
       {
-        icon: <Image src="/icons/Civil_Structural.jpg" alt="Civil_Structural" width={20} height={20} />,
+        icon: <Image src="/icons/Civil_Structural.jpg" alt="Civil and Structural" width={20} height={20} />,
         title: "Civil & Structural",
-        description: "Expert civil and structural engineering for industrial infrastructure projects.",
+        description: (
+          <>
+            <ul className="list-disc pl-4 space-y-1 text-sm">
+              <li>RCC &amp; Steel Structure Design &amp; Detailing</li>
+              <li>Plot Plan</li>
+              <li>Foundation Design</li>
+              <li>Steel Connection Design &amp; Detail</li>
+              <li>Structural Analysis</li>
+            </ul>
+          </>
+        ),
       },
     ],
   },
@@ -124,7 +193,7 @@ export default function ServicesGrid() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
       >
         {services.map((section, sIdx) => (
           <React.Fragment key={sIdx}>
@@ -139,14 +208,13 @@ export default function ServicesGrid() {
             </div>
 
             {section.items.map((service, idx) => (
-              <motion.div key={idx} variants={item}>
-                <ServiceCard
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  variant={section.section === "Product Design" ? "product" : "plant"}
-                />
-              </motion.div>
+              <ServiceCard
+                key={idx}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                variant={section.section === "Product Design" ? "product" : "plant"}
+              />
             ))}
           </React.Fragment>
         ))}

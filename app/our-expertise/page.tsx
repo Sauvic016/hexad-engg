@@ -1,7 +1,20 @@
 import React from "react";
 import ProductsBanner from "@/components/expertise/ExpertiseBanner";
 import ExpertiseCard from "@/components/expertise/ExpertiseCard";
-import { Cpu, Droplet, Gauge, Lightbulb, PanelTop, ZapIcon } from "lucide-react";
+import {
+  Cpu,
+  Droplet,
+  Gauge,
+  Lightbulb,
+  PanelTop,
+  ZapIcon,
+  EvCharger,
+  CarFront as Car,
+  Gpu,
+  ChartLine,
+  BookAlert,
+  SolarPanel,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -83,7 +96,128 @@ const Products: React.FC = () => {
         </>
       ),
       imageUrl: "/IMG_7991.JPG",
-      icon: <PanelTop size={24} className="p-3 rounded-xl text-gray-900" />,
+      icon: <PanelTop size={24} />,
+      isReversed: true,
+    },
+    {
+      id: "automotive-engineering",
+      title: "Automotive Engineering",
+      description: (
+        <>
+          <p className="my-4 ">Our Offerings include:</p>
+          <ul className="list-disc pl-5 mt-2 space-y-2 text-sm ">
+            <li> CAD & CAE AUTOMATION</li>
+            <li> INDUSTRIAL AUTOMATION</li>
+            <li> INT/EXT PLASTIC TRIMS DESIGN</li>
+            <li> CAE SOLUTIONS</li>
+            <li> ROBOTIC SIMULATION</li>
+            <li> BIW FIXTURE DESIGN</li>
+          </ul>
+        </>
+      ),
+      imageUrl: "/Automotive.png",
+      icon: <Car size={24} />,
+      isReversed: false,
+    },
+    {
+      id: "electronic-engineering",
+      title: "Electronic Engineering",
+      description: (
+        <>
+          We provide end-to-end electronic engineering and design services - from concept and schematic design to PCB
+          layout, embedded firmware, simulation, prototyping, and product lifecycle support across multiple industries.
+          <p className="my-4">Our Offerings include:</p>
+          <ol className="list-disc pl-5 mt-2 space-y-2 text-sm max-h-44 overflow-y-auto pr-2">
+            <li>Concept Development & System Architecture</li>
+            <li>Schematic Design</li>
+            <li>PCB Design & Layout</li>
+            <li>Embedded Systems Development</li>
+            <li>Simulation & Analysis</li>
+            <li>Prototyping & Testing Support</li>
+            <li>Product Engineering & Lifecycle Support</li>
+            <li>Industry Applications</li>
+            <li>IoT SYSTEM DESIGN</li>
+          </ol>
+        </>
+      ),
+      imageUrl: "/Electronic_Engineering.WEBP",
+      icon: <EvCharger size={24} />,
+      isReversed: true,
+    },
+    {
+      id: "mining-engineering",
+      title: "Mining Engineering",
+      description: (
+        <>
+          We provide comprehensive mining engineering and design services, including mine planning, infrastructure
+          design, equipment optimization, CAD drafting, simulation, and project engineering support for open-pit and
+          underground mining operations.
+          <p className="my-4">Our Offerings include:</p>
+          <ol className="list-disc pl-5 mt-2 space-y-2 text-sm max-h-48 overflow-y-auto pr-2">
+            <li>Mine Planning & Design</li>
+            <li>Geological & Resource Support</li>
+            <li>Engineering Analysis & Design</li>
+            <li>Equipment & Fleet Engineering</li>
+            <li>CAD Drafting & Detailed Engineering</li>
+            <li>Simulation & Technical Studies</li>
+            <li>Documentation & Deliverables</li>
+          </ol>
+        </>
+      ),
+      imageUrl: "/Mining_Engineering.png",
+      icon: <Gpu size={24} />,
+      isReversed: false,
+    },
+    {
+      id: "power_system_studies",
+      title: "Power System Studies",
+      description: (
+        <>
+          <p className="my-4 ">Our Offerings include:</p>
+          <ul className="list-disc pl-5 mt-2 space-y-2 text-sm ">
+            <li>Load Flow Analysis (ETAP, SKM)</li>
+            <li>Short Circuit Analysis (ETAP, SKM)</li>
+            <li>Protective Device Coordination (ETAP, SKM)</li>
+            <li>Arc Flash Studies (ETAP, SKM)</li>
+            <li>Harmonic Analysis (ETAP, SKM)</li>
+          </ul>
+        </>
+      ),
+      imageUrl: "/Power_System_Studies.png",
+      icon: <BookAlert size={24} />,
+      isReversed: true,
+    },
+    {
+      id: "analysis_and_simulation",
+      title: "Analysis & Simulation",
+      description:
+        "We provide advanced engineering analysis and simulation services including FEA, CFD, thermal, structural, motion, and operational simulations to validate performance, reduce risk, and optimize product designs before manufacturing.",
+      imageUrl: "/Analysis_Simulation.png",
+      icon: <ChartLine size={24} />,
+      isReversed: false,
+    },
+    {
+      id: "solar-power-plant",
+      title: "Solar Power Plant",
+      description: (
+        <>
+          We provide comprehensive solar power plant engineering and design services, including feasibility studies,
+          electrical and civil design, layout optimization, analysis, detailed engineering, and construction support for
+          utility-scale and C&I solar projects.
+          <p className="my-4">Our Offerings include:</p>
+          <ol className="list-disc pl-5 mt-2 space-y-2 text-sm max-h-48 overflow-y-auto pr-2">
+            <li>Feasibility Study &amp; Concept Design</li>
+            <li>Solar PV Plant Layout &amp; Engineering</li>
+            <li>Electrical Engineering</li>
+            <li>Civil &amp; Structural Engineering</li>
+            <li>Analysis &amp; Simulation</li>
+            <li>Balance of Plant (BoP) Design</li>
+            <li>Detailed Engineering &amp; Drafting</li>
+          </ol>
+        </>
+      ),
+      imageUrl: "/Solar_Power_Plant.png",
+      icon: <SolarPanel size={24} />,
       isReversed: true,
     },
   ];

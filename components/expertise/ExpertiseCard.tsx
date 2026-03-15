@@ -33,10 +33,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
           const headerHeight = 80; // Adjust this value based on your header height
 
           // Get the element's position
-          const elementPosition =
-            cardRef.current?.getBoundingClientRect().top || 0;
-          const offsetPosition = elementPosition + window.pageYOffset -
-            headerHeight;
+          const elementPosition = cardRef.current?.getBoundingClientRect().top || 0;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
           // Scroll to the element
           window.scrollTo({
@@ -69,20 +67,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </div>
       </div>
 
-      {
-        /* <Card className="bg-red-300">
+      {/* <Card className="bg-red-300">
         <CardContent className="p-0  aspect-square group cursor-pointer">
           <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover " />
         </CardContent>
-      </Card> */
-      }
+      </Card> */}
 
       <div className="w-full lg:w-1/2 p-4 sm:p-5 lg:p-6 flex flex-col">
         <div className="flex items-center mb-2 sm:mb-3">
           <div className="mr-3 text-gray-600">{iconComponent}</div>
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-brand-primary">
-            {title}
-          </h3>
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-brand-primary">{title}</h3>
         </div>
         <div className="text-gray-600 text-sm sm:text-base flex-grow overflow-y-auto pr-2 max-h-[300px] lg:max-h-none">
           {description}

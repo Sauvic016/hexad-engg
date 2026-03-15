@@ -22,14 +22,14 @@ const Hero = () => {
 
       <div className="container  relative z-10 mx-auto px-4 h-full flex flex-col justify-center">
         <div className="max-w-4xl mx-auto text-center ">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-bold mb-6 ">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-bold mb-6 [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
             Transform Industries
             <br />
             with
             <span className="text-brand-primary font-extrabold">HEXAD</span>
           </h1>
 
-          <p className="text-lg font-semibold md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto text-white">
+          <p className="text-lg font-semibold md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
             From product innovation to infrastructure development
             <br /> we bring vision to reality.
           </p>

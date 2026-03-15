@@ -51,6 +51,42 @@ export default function SlickSlider() {
       title: "Power Distribution Equipments",
       link: "/our-expertise#power-distribution-equipment",
     },
+    {
+      id: 7,
+      image: "/Automotive.png",
+      title: "Automotive Engineering",
+      link: "/our-expertise#automotive-engineering",
+    },
+    {
+      id: 8,
+      image: "/Electronic_Engineering.WEBP",
+      title: "Electronic Engineering",
+      link: "/our-expertise#electronic-engineering",
+    },
+    {
+      id: 9,
+      image: "/Mining_Engineering.png",
+      title: "Mining Engineering",
+      link: "/our-expertise#mining-engineering",
+    },
+    {
+      id: 10,
+      image: "/Power_System_Studies.png",
+      title: "Power System Studies",
+      link: "/our-expertise#power_system_studies",
+    },
+    {
+      id: 11,
+      image: "/Analysis_Simulation.png",
+      title: "Analysis & Simulation",
+      link: "/our-expertise#analysis_and_simulation",
+    },
+    {
+      id: 12,
+      image: "/Solar_Power_Plant.png",
+      title: "Solar Power Plant",
+      link: "/our-expertise#solar_power_plant",
+    },
   ];
 
   return (
@@ -88,7 +124,7 @@ export default function SlickSlider() {
                   <div className="absolute inset-0 flex flex-col justify-between  p-6">
                     {/* Title always visible, changes color on hover */}
                     <div></div>
-                    <h3 className="text-white font-bold text-center text-4xl z-10 transition-colors duration-300  group-hover:font-extrabold">
+                    <h3 className="text-white font-bold text-center text-4xl z-10 transition-colors duration-300 group-hover:font-extrabold [text-shadow:0_0_20px_rgba(0,0,0,0.8),0_0_40px_rgba(0,0,0,0.6),0_2px_4px_rgba(0,0,0,0.9)]">
                       {item.title}
                     </h3>
 
