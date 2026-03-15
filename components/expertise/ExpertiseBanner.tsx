@@ -18,10 +18,10 @@ const ProductsBanner: React.FC = () => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
             Engineered <span className="text-brand-primary">Excellence</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)] max-w-3xl mx-auto">
             Cutting-edge solutions across critical industries that power our
             world for a better future
           </p>

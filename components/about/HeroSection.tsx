@@ -16,10 +16,10 @@ const HeroSection: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
           Transforming Ideas into <span className="text-brand-primary">Reality</span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+        <p className="text-xl md:text-2xl text-gray-200 mb-8 [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)] max-w-3xl mx-auto">
           We&apos;re a team of innovators, dreamers, and doers committed to building technology that shapes the future.
         </p>
         {/* <div className="flex flex-col sm:flex-row justify-center gap-4">

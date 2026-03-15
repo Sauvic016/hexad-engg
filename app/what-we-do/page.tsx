@@ -24,11 +24,11 @@ export default function WhatWeDoPage() {
 
         <div className="container relative z-20 mx-auto px-4 h-full flex flex-col justify-center items-center">
           <div className="max-w-4xl flex flex-col items-center ">
-            <h1 className="text-4xl  md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl  md:text-6xl font-bold text-white mb-6 [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
               What <span className="text-brand-primary"> We</span> Do
             </h1>
             {/* <div className="w-40 h-1  bg-brand-primary mb-6"></div> */}
-            <p className="text-lg text-center md:text-xl text-white/90 max-w-2xl">
+            <p className="text-lg text-center md:text-xl text-white/90 max-w-2xl [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
               Innovative engineering solutions for complex industrial challenges
             </p>
           </div>
