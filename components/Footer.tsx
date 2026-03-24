@@ -72,8 +72,8 @@ const Footer = () => {
                 560045, India.
               </p> */}
               <p>
-                Operational address: 22nd Floor, World Trade Center, 26/1, Brigade Gateway, Bengaluru, Karnataka,
-                560055, India
+                Operational address: First floor, No. 12 & 13, Nanda Gokula Complex, 16th A cross Rd, Bhuvaneshwari
+                Nagar, Dasarahalli, Bengaluru, 560024, India
               </p>
               <p>Registered address: 164, Yelahanka, Bengaluru, Karnataka, 560064, India</p>
             </li>

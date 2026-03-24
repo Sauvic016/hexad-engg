@@ -57,8 +57,8 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent className="space-y-2 ">
                   <CardDescription className="text-zinc-700 dark:text-zinc-100 rounded-xl p-2 ">
-                    <b> Operational address</b>: 22nd Floor, World Trade Center, 26/1, Brigade Gateway, Bengaluru,
-                    Karnataka, 560055, India
+                    <b> Operational address</b>: First floor, No. 12 & 13, Nanda Gokula Complex, 16th A cross Rd,
+                    Bhuvaneshwari Nagar, Dasarahalli, Bengaluru, 560024, India
                   </CardDescription>
 
                   <CardDescription className="text-zinc-700 dark:text-zinc-100 rounded-xl p-2">
