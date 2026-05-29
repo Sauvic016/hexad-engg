@@ -38,10 +38,12 @@ const Whatwedo = () => {
             <div className="w-full h-full">
               <video
                 src={`${process.env.NEXT_PUBLIC_PRODUCT_DESIGN_VIDEO_URL}`}
+                poster="/video-background/Product_sj3adt.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className="rounded-lg shadow-lg object-cover w-full h-full"
               ></video>
             </div>
@@ -70,10 +72,12 @@ const Whatwedo = () => {
             <div className="w-full h-full">
               <video
                 src={`${process.env.NEXT_PUBLIC_PLANT_DESIGN_VIDEO_URL}`}
+                poster="/video-background/Plant.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className="rounded-lg shadow-lg object-cover w-full h-full"
               ></video>
             </div>

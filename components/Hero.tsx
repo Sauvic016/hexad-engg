@@ -11,13 +11,14 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 ">
         <video
           src={`${process.env.NEXT_PUBLIC_HERO_VIDEO_URL}`}
+          poster="/video-background/Cover.jpg"
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
-        >
-        </video>
+        ></video>
       </div>
 
       <div className="container  relative z-10 mx-auto px-4 h-full flex flex-col justify-center">
@@ -33,13 +34,11 @@ const Hero = () => {
             From product innovation to infrastructure development
             <br /> we bring vision to reality.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4"// transition={{ duration: 0.5, delay: 0.4 }}
+          <div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4" // transition={{ duration: 0.5, delay: 0.4 }}
           >
             <Link href="/what-we-do" className="">
-              <Button
-                size="lg"
-                className="bg-brand-primary hover:bg-brand-primary text-white cursor-pointer"
-              >
+              <Button size="lg" className="bg-brand-primary hover:bg-brand-primary text-white cursor-pointer">
                 Explore Services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
