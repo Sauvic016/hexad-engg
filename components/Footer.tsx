@@ -71,11 +71,11 @@ const Footer = () => {
                 <br />
                 560045, India.
               </p> */}
+
               <p>
-                Operational address: First floor, No. 12 & 13, Nanda Gokula Complex, 16th A cross Rd, Bhuvaneshwari
-                Nagar, Dasarahalli, Bengaluru, 560024, India
+                Registered address: 1st Floor, No. 12 & 13, Nanda Gokula Complex, 16th A Cross Road, Hebbal Kempapura,
+                Bengaluru, Karnataka, 560024, India
               </p>
-              <p>Registered address: 164, Yelahanka, Bengaluru, Karnataka, 560064, India</p>
             </li>
           </ul>
         </div>

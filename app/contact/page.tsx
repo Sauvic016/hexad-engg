@@ -56,13 +56,9 @@ export default function ContactPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-2 ">
-                  <CardDescription className="text-zinc-700 dark:text-zinc-100 rounded-xl p-2 ">
-                    <b> Operational address</b>: First floor, No. 12 & 13, Nanda Gokula Complex, 16th A cross Rd,
-                    Bhuvaneshwari Nagar, Dasarahalli, Bengaluru, 560024, India
-                  </CardDescription>
-
                   <CardDescription className="text-zinc-700 dark:text-zinc-100 rounded-xl p-2">
-                    <b>Registered address </b>: 164, Yelahanka, Bengaluru, Karnataka, 560064, India
+                    <b>Registered address </b>: 1st Floor, No. 12 & 13, Nanda Gokula Complex, 16th A Cross Road, Hebbal
+                    Kempapura, Bengaluru, Karnataka, 560024, India
                   </CardDescription>
                 </CardContent>
               </Card>
