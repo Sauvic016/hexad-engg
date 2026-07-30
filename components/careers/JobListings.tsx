@@ -16,14 +16,14 @@ const JobListings: React.FC = () => {
   const [locationFilter, setLocationFilter] = useState<string>("All");
 
   const jobs: Job[] = [
-    // {
-    //   id: "1-hd",
-    //   title: "Hardware Design Engineer",
-    //   department: "Engineering",
-    //   location: "Bengaluru",
-    //   type: "Full-time",
-    //   remote: true,
-    // },
+    {
+      id: "design-engineer",
+      title: " Design Engineer",
+      department: "Engineering",
+      location: "Bengaluru",
+      type: "Full-time",
+      remote: false,
+    },
     // {
     //   id: "2",
     //   title: "UX Designer",

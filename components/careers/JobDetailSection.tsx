@@ -15,7 +15,7 @@ interface IJobData {
   postedDate?: string;
   department: string;
   image?: string;
-  description: string;
+  description?: string;
   responsibilities: string[];
   qualifications: string[];
   niceToHave?: string[];
@@ -90,26 +90,28 @@ export default function JobDetailSection({ jobData }: { jobData: IJobData }) {
           <div className="flex">
             <div className="w-full space-y-10 sm:space-y-12">
               {/* Description */}
-              <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-                  Job Description
-                </h2>
-                <div className="prose prose-sm sm:prose base dark:prose-invert max-w-none">
-                  {jobData.description.split("\n\n").map((paragraph, i) => (
-                    <p
-                      key={i}
-                      className="text-[15px] sm:text-[16px] text-gray-700 dark:text-gray-300 leading-7 sm:leading-7.5 mb-3 sm:mb-4"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+              {jobData.description && (
+                <div>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+                    Job Description
+                  </h2>
+                  <div className="prose prose-sm sm:prose base dark:prose-invert max-w-none">
+                    {jobData.description.split("\n\n").map((paragraph, i) => (
+                      <p
+                        key={i}
+                        className="text-[15px] sm:text-[16px] text-gray-700 dark:text-gray-300 leading-7 sm:leading-7.5 mb-3 sm:mb-4"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Responsibilities */}
               <div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-                  Key Responsibilities
+                  Job Summary
                 </h2>
                 <div className="space-y-3 sm:space-y-4">
                   {jobData.responsibilities.map((r, i) => (
@@ -126,7 +128,7 @@ export default function JobDetailSection({ jobData }: { jobData: IJobData }) {
               {/* Qualifications */}
               <div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-                  Required Qualifications
+                  Preferred Qualifications
                 </h2>
                 <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
                   {jobData.qualifications.map((q, i) => (
@@ -242,7 +244,7 @@ export default function JobDetailSection({ jobData }: { jobData: IJobData }) {
             <div className="flex flex-col sm:flex-row gap-3 pt-2 sm:pt-4">
               <Link
                 href={`${gmailBaseUrl}&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent(
-                  `${jobData.title} Applicant`
+                  `${jobData.title} Applicant`,
                 )}`}
                 target="_blank"
                 rel="noreferrer"
