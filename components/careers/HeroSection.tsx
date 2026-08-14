@@ -4,6 +4,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import careersHero from "@/public/Careers.webp";
 
 const HeroSection: React.FC = () => {
   return (
@@ -44,13 +45,14 @@ const HeroSection: React.FC = () => {
     //     </div>
     //   </div>
     // </section>
-    <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+    <section className="relative h-[50vh] md:h-[60vh] overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/Careers.jpeg"
+          src={careersHero}
           alt="HEXAD Engineering"
           fill
           className="object-cover brightness-[0.7]"
+          sizes="100vw"
           priority
         />
       </div>
@@ -58,13 +60,11 @@ const HeroSection: React.FC = () => {
       <div className="container relative z-20 mx-auto px-4  h-full flex flex-col justify-center items-center">
         <div className="max-w-4xl flex flex-col items-center ">
           <h1 className=" text-center @max-xs:text-3xl text-4xl  md:text-6xl font-bold text-white mb-6 [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
-            Join the Mission to{" "}
-            <span className="text-brand-primary">Transform</span> the Future
+            Join the Mission to <span className="text-brand-primary">Transform</span> the Future
           </h1>
           {/* <div className="w-40 h-1  bg-brand-primary mb-6"></div> */}
           <p className="text-sm text-center md:text-xl text-white/90 max-w-2xl [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
-            We&apos;re building something extraordinary, and we need exceptional
-            people like you to make it happen.
+            We&apos;re building something extraordinary, and we need exceptional people like you to make it happen.
           </p>
         </div>
         <div className="flex flex-row justify-center md:gap-4 gap-2 p-2">

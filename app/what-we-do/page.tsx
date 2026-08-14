@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ServicesGrid from "@/components/what-we-do/service";
 import CustomService from "@/components/what-we-do/custom-service";
+import whatWeDoHero from "@/public/about-banner.webp";
 
 export const metadata = {
   title: "What we do - HEXAD Engineering",
@@ -11,13 +12,14 @@ export default function WhatWeDoPage() {
   return (
     <>
       {/* Banner Section */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/about-banner.jpg"
+            src={whatWeDoHero}
             alt="HEXAD Engineering"
             fill
             className="object-cover brightness-[0.7]"
+            sizes="100vw"
             priority
           />
         </div>

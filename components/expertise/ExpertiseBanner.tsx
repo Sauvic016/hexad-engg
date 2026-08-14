@@ -2,16 +2,18 @@
 import React from "react";
 // import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import expertiseHero from "@/public/expertise-banner.webp";
 
 const ProductsBanner: React.FC = () => {
   return (
-    <section className="relative w-full h-[60vh] overflow-hidden">
+    <section className="relative w-full h-[60vh] overflow-hidden bg-black">
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/expertise-banner.jpg"
+          src={expertiseHero}
           fill
           alt="Modern office space with team collaboration"
           className="object-cover"
+          sizes="100vw"
           priority
         />
       </div>
@@ -22,11 +24,9 @@ const ProductsBanner: React.FC = () => {
             Engineered <span className="text-brand-primary">Excellence</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)] max-w-3xl mx-auto">
-            Cutting-edge solutions across critical industries that power our
-            world for a better future
+            Cutting-edge solutions across critical industries that power our world for a better future
           </p>
-          {
-            /* <div className="flex flex-col sm:flex-row justify-center gap-4">
+          {/* <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="#who-we-are"
                 className="px-8 py-4 bg-blue-600 text-white rounded-lg font-medium text-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-lg inline-flex items-center gap-2 group"
@@ -40,8 +40,7 @@ const ProductsBanner: React.FC = () => {
               >
                 Join Our Team
               </Link>
-            </div> */
-          }
+            </div> */}
         </div>
       </div>
     </section>

@@ -1,23 +1,36 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import videoPoster from "@/public/video-background/Cover.jpg";
 
 const Hero = () => {
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
   return (
-    <section className="relative h-screen overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <section className="relative h-screen overflow-hidden bg-black">
       <div className="absolute inset-0 z-0 ">
+        <Image
+          src={videoPoster}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={`object-cover transition-opacity duration-500 ${isVideoReady ? "opacity-0" : "opacity-100"}`}
+        />
         <video
           src={`${process.env.NEXT_PUBLIC_HERO_VIDEO_URL}`}
-          poster="/video-background/Cover.jpg"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
+          onCanPlay={() => setIsVideoReady(true)}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+            isVideoReady ? "opacity-100" : "opacity-0"
+          }`}
         ></video>
       </div>
 

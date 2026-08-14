@@ -1,17 +1,18 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import aboutHero from "@/public/banner-about.webp";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/banner-about.jpeg"
-          width={1920}
-          height={1080}
+          src={aboutHero}
           alt="Modern office space with team collaboration"
           className="w-full h-full object-cover"
+          sizes="100vw"
+          priority
         />
       </div>
 
