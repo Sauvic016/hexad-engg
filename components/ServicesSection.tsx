@@ -90,10 +90,14 @@ export default function SlickSlider() {
   ];
 
   return (
-    <div className="w-full  mx-auto px-4 py-10 mt-12">
+    <section className="overflow-hidden bg-[#07152f] py-20 sm:py-24">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Our Expertise</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        <div className="mx-auto mb-5 h-1 w-24 rounded-full bg-brand-primary" />
+        <h2 className="text-3xl font-bold uppercase tracking-tight text-white md:text-5xl">Our Expertise</h2>
+        <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-blue-100/70">
+          Cross-industry engineering knowledge backed by practical delivery experience.
+        </p>
       </div>
       <Carousel
         plugins={[
@@ -108,34 +112,37 @@ export default function SlickSlider() {
           loop: true,
           slidesToScroll: 1,
         }}
-        className="w-full mt-10 cursor-pointer"
+        className="mt-10 w-full cursor-pointer"
       >
-        <div className="flex justify-end gap-2 mt-4">
-          <CarouselPrevious className="relative inset-0 translate-y-0 h-9 w-9 rounded-full border border-neutral-200 bg-white hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900" />
-          <CarouselNext className="relative inset-0 translate-y-0 h-9 w-9 rounded-full border border-neutral-200 bg-white hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900" />
+        <div className="mb-5 mt-4 flex justify-end gap-2">
+          <CarouselPrevious className="relative inset-0 h-10 w-10 translate-y-0 border-white/20 bg-white/10 text-white hover:bg-brand-primary hover:text-white" />
+          <CarouselNext className="relative inset-0 h-10 w-10 translate-y-0 border-white/20 bg-white/10 text-white hover:bg-brand-primary hover:text-white" />
         </div>
-        <CarouselContent className="-ml-0 -mr-0">
+        <CarouselContent className="-ml-3">
           {items.map((item) => (
-            <CarouselItem key={item.id} className="pl-0 pr-0 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-              <Card className="border-0 rounded-none overflow-hidden shadow-none">
-                <CardContent className="p-0 relative aspect-square group cursor-pointer">
-                  <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover " />
-                  <div className="absolute inset-0 bg-slate-100/40 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute inset-0 flex flex-col justify-between  p-6">
-                    {/* Title always visible, changes color on hover */}
-                    <div></div>
-                    <h3 className="text-white font-bold text-center text-4xl z-10 transition-colors duration-300 group-hover:font-extrabold [text-shadow:0_0_20px_rgba(0,0,0,0.8),0_0_40px_rgba(0,0,0,0.6),0_2px_4px_rgba(0,0,0,0.9)]">
+            <CarouselItem key={item.id} className="basis-full pl-3 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+              <Card className="overflow-hidden rounded-2xl border border-white/10 bg-blue-950 py-0 shadow-[0_18px_45px_-28px_rgba(0,0,0,0.85)]">
+                <CardContent className="group relative aspect-[4/5] cursor-pointer overflow-hidden p-0">
+                  <Image
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-brand-primary/10 mix-blend-color" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07152f] via-[#07152f]/20 to-transparent" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <h3 className="z-10 text-center text-2xl font-bold text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.65)]">
                       {item.title}
                     </h3>
 
-                    {/* Button only visible on hover */}
-                    <div className="flex justify-center mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <div className="z-10 mt-5 flex translate-y-2 justify-center opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
                       <Link href={item.link}>
                         <Button
-                          variant="outline"
-                          className=" p-4 bg-white cursor-pointer  border-white  hover:bg-white hover:text-black transition-colors"
+                          className="group/button cursor-pointer bg-brand-primary text-white hover:bg-blue-500"
                         >
-                          Read More <ArrowRight />
+                          Read More
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover/button:translate-x-1" />
                         </Button>
                       </Link>
                     </div>
@@ -146,6 +153,7 @@ export default function SlickSlider() {
           ))}
         </CarouselContent>
       </Carousel>
-    </div>
+      </div>
+    </section>
   );
 }

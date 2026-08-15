@@ -12,27 +12,16 @@ interface StepProps {
 
 const Step: React.FC<StepProps> = ({ number, title, description, icon }) => {
   return (
-    <div className="flex">
-      <div className="flex-shrink-0 mr-4">
-        <div className="relative">
-          <div className="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-600">
-            {icon}
-          </div>
-          {number < 4 && (
-            <div className="absolute top-14 left-1/2 w-px h-24 bg-gray-300 transform -translate-x-1/2 hidden md:block"></div>
-          )}
+    <article className="relative rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
+      <div className="flex items-center justify-between">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-brand-primary">
+          {icon}
         </div>
+        <span className="text-4xl font-bold text-blue-100">0{number}</span>
       </div>
-      <div className="pt-2 pb-8">
-        <div className="flex items-center">
-          <span className="flex items-center justify-center w-6 h-6 bg-blue-600 text-white rounded-full text-xs font-bold mr-2">
-            {number}
-          </span>
-          <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-        </div>
-        <p className="mt-2 text-gray-600">{description}</p>
-      </div>
-    </div>
+      <h3 className="mt-6 text-xl font-bold text-blue-950">{title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-gray-600">{description}</p>
+    </article>
   );
 };
 
@@ -65,19 +54,19 @@ const ApplicationProcess: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Application Process</h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-4  rounded-full"></div>
-            <p className="text-xl text-gray-600">
+    <section className="bg-gradient-to-b from-white via-blue-50/40 to-white pb-20 pt-10 sm:pb-24 sm:pt-12">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
+            <div className="mx-auto mb-5 h-1 w-24 bg-brand-primary" />
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-primary">What to Expect</p>
+            <h2 className="text-3xl font-bold uppercase tracking-tight text-blue-950 md:text-5xl">Our Application Process</h2>
+            <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-gray-600 sm:text-lg">
               We&apos;ve designed a straightforward process to help us find the right candidates while giving you
               insight into our company.
             </p>
           </div>
 
-          <div className="space-y-4 md:space-y-0 md:pl-8">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {steps.map((step, index) => (
               <Step key={index} number={index + 1} title={step.title} description={step.description} icon={step.icon} />
             ))}
@@ -104,7 +93,6 @@ const ApplicationProcess: React.FC = () => {
               </p>
             </div>
           </div> */}
-        </div>
       </div>
     </section>
   );

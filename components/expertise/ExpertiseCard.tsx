@@ -47,15 +47,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
   }, [id]);
 
   return (
-    <div
+    <article
       ref={cardRef}
       id={id}
-      className={`flex flex-col ${
-        isReversed ? "lg:flex-row-reverse" : "lg:flex-row"
-      } bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 scroll-mt-20`}
+      className="grid scroll-mt-24 overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-[0_20px_60px_-38px_rgba(7,21,47,0.38)] lg:grid-cols-2"
     >
-      <div className="w-full lg:w-1/2 flex-shrink-0">
-        <div className="relative w-full aspect-[4/3]">
+      <div className={`relative min-h-[300px] bg-blue-950 lg:min-h-[430px] ${isReversed ? "lg:order-2" : ""}`}>
           <Image
             src={imageUrl}
             alt={title}
@@ -63,25 +60,22 @@ const ProductCard: React.FC<ProductCardProps> = ({
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-        </div>
+        <div className="absolute inset-0 bg-brand-primary/10 mix-blend-color" />
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 via-transparent to-transparent" />
       </div>
 
-      {/* <Card className="bg-red-300">
-        <CardContent className="p-0  aspect-square group cursor-pointer">
-          <Image src={imageUrl || "/placeholder.svg"} alt={title} fill className="object-cover " />
-        </CardContent>
-      </Card> */}
-
-      <div className="w-full lg:w-1/2 p-4 sm:p-5 lg:p-6 flex flex-col">
-        <div className="flex items-center mb-2 sm:mb-3">
-          <div className="mr-3 text-gray-600">{iconComponent}</div>
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-brand-primary">{title}</h3>
+      <div className={`flex flex-col justify-center p-7 sm:p-9 lg:p-12 ${isReversed ? "lg:order-1" : ""}`}>
+        <div className="flex items-center gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-brand-primary [&_svg]:h-6 [&_svg]:w-6 [&_svg]:stroke-[1.7]">
+            {iconComponent}
+          </div>
+          <h2 className="text-2xl font-bold text-blue-950 sm:text-3xl">{title}</h2>
         </div>
-        <div className="text-gray-600 text-sm sm:text-base flex-grow overflow-y-auto pr-2 max-h-[300px] lg:max-h-none">
+        <div className="mt-5 max-h-[320px] flex-grow overflow-y-auto pr-3 text-sm leading-relaxed text-gray-600 sm:text-base [&_li]:pl-1 [&_li::marker]:text-brand-primary [&_strong]:font-semibold [&_strong]:text-blue-950 lg:max-h-[360px]">
           {description}
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

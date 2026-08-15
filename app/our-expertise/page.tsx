@@ -14,8 +14,8 @@ import {
   ChartLine,
   BookAlert,
   SolarPanel,
+  ArrowRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export const metadata = {
@@ -223,45 +223,60 @@ const Products: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-gray-50">
+    <main className="w-full bg-white">
       <ProductsBanner />
 
-      <div id="products-section" className="container mx-auto px-4 mt-24 ">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Our Industry Solutions</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto mb-4  rounded-full"></div>
-        <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-16">
-          Engineering excellence across sectors that power modern infrastructure and industry
-        </p>
+      <section id="products-section" className="bg-gradient-to-b from-blue-50/40 to-white py-20 sm:py-24">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
+            <div className="mx-auto mb-5 h-1 w-24 bg-brand-primary" />
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-primary">Sector Knowledge</p>
+            <h2 className="text-3xl font-bold uppercase tracking-tight text-blue-950 md:text-5xl">Our Industry Solutions</h2>
+            <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-gray-600 sm:text-lg">
+              Engineering excellence across sectors that power modern infrastructure and industry.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 gap-12 md:gap-16 mx-auto max-w-6xl">
-          {productSections.map((product) => (
-            <ExpertiseCard
-              id={product.id}
-              key={product.id}
-              title={product.title}
-              description={product.description}
-              imageUrl={product.imageUrl}
-              iconComponent={product.icon}
-              isReversed={product.isReversed}
-            />
-          ))}
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:gap-10">
+            {productSections.map((product) => (
+              <ExpertiseCard
+                id={product.id}
+                key={product.id}
+                title={product.title}
+                description={product.description}
+                imageUrl={product.imageUrl}
+                iconComponent={product.icon}
+                isReversed={product.isReversed}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="bg-white text-brand-primary py-16 mx-5 lg:mx-20 shadow-lg  rounded-2xl my-8">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Operations?</h2>
-          <p className="max-w-2xl mx-auto mb-8 text-gray-700">
-            Partner with Hexad for innovative engineering solutions tailored to your industry needs
-          </p>
-          <Link href={"/contact"}>
-            <Button className="cursor-pointer px-8 py-3 bg-black text-white rounded-md text-md font-medium  transition-colors">
-              Contact Our Experts
-            </Button>
-          </Link>
+      <section className="bg-white pb-20 sm:pb-24">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-2xl bg-[#07152f] px-6 py-10 sm:px-10 sm:py-12 lg:px-14">
+            <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-primary/20 blur-3xl" />
+            <div className="relative flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
+              <div>
+                <div className="mb-5 h-1 w-20 bg-brand-primary" />
+                <h2 className="text-3xl font-bold text-white sm:text-4xl">Ready to Transform Your Operations?</h2>
+                <p className="mt-4 max-w-xl leading-relaxed text-blue-100/70">
+                  Partner with HEXAD for engineering solutions tailored to your industry and operational goals.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
+              >
+                Contact Our Experts
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

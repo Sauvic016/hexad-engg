@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { Briefcase, MapPin, Filter } from "lucide-react";
+import { ArrowRight, Briefcase, MapPin, Filter } from "lucide-react";
+import Link from "next/link";
 
 interface Job {
   id: string;
@@ -92,32 +93,35 @@ const JobListings: React.FC = () => {
   });
 
   return (
-    <section id="open-positions" className="pt-24 pb-4 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Open Positions</h2>
-          <div className="w-24 h-1 bg-blue-600 mb-4 mx-auto rounded-full"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join our team of passionate individuals working to make a difference.
+    <section id="open-positions" className="scroll-mt-20 bg-white pb-10 pt-20 sm:pb-12 sm:pt-24">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
+          <div className="mx-auto mb-5 h-1 w-24 bg-brand-primary" />
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-primary">Join the Team</p>
+          <h2 className="text-3xl font-bold uppercase tracking-tight text-blue-950 md:text-5xl">Open Positions</h2>
+          <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-gray-600 sm:text-lg">
+            Find a role where your experience can shape dependable engineering outcomes.
           </p>
         </div>
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 p-4 bg-gray-50 rounded-lg">
-            <div className="flex items-center gap-2 text-gray-600">
-              <Filter className="w-5 h-5" />
+
+        <div className="mx-auto max-w-5xl">
+          {jobs.length > 1 && (
+          <div className="mb-8 flex flex-col items-start justify-between gap-5 rounded-xl border border-blue-100 bg-blue-50/40 p-5 md:flex-row md:items-end">
+            <div className="flex items-center gap-2 text-blue-950">
+              <Filter className="h-5 w-5 text-brand-primary" aria-hidden="true" />
               <span className="font-medium">Filter positions:</span>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex w-full flex-col gap-4 sm:flex-row md:w-auto">
               <div className="min-w-40">
-                <label htmlFor="department" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="department" className="mb-1 block text-xs font-semibold uppercase tracking-wider text-gray-500">
                   Department
                 </label>
                 <select
                   id="department"
                   value={departmentFilter}
                   onChange={(e) => setDepartmentFilter(e.target.value)}
-                  className="block w-full px-4 py-2 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="block w-full rounded-lg border border-blue-100 bg-blue-50/40 px-4 py-2.5 text-sm text-blue-950 outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20"
                 >
                   {departments.map((dept) => (
                     <option key={dept} value={dept}>
@@ -128,14 +132,14 @@ const JobListings: React.FC = () => {
               </div>
 
               <div className="min-w-40">
-                <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="location" className="mb-1 block text-xs font-semibold uppercase tracking-wider text-gray-500">
                   Location
                 </label>
                 <select
                   id="location"
                   value={locationFilter}
                   onChange={(e) => setLocationFilter(e.target.value)}
-                  className="block w-full px-4 py-2 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="block w-full rounded-lg border border-blue-100 bg-blue-50/40 px-4 py-2.5 text-sm text-blue-950 outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20"
                 >
                   {locations.map((loc) => (
                     <option key={loc} value={loc}>
@@ -146,18 +150,19 @@ const JobListings: React.FC = () => {
               </div>
             </div>
           </div>
+          )}
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {filteredJobs.length > 0 ? (
               filteredJobs.map((job) => (
-                <div
+                <article
                   key={job.id}
-                  className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow duration-300"
+                  className="border-y border-blue-200 bg-white py-6 sm:px-2"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-1">{job.title}</h3>
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600">
+                      <h3 className="mb-2 text-xl font-bold text-blue-950">{job.title.trim()}</h3>
+                      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-gray-600">
                         <div className="flex items-center">
                           <Briefcase className="w-4 h-4 mr-1" />
                           {job.department}
@@ -174,14 +179,15 @@ const JobListings: React.FC = () => {
                         )}
                       </div>
                     </div>
-                    <a
+                    <Link
                       href={`/careers/jobs/${job.id}`}
-                      className="px-6 py-2 bg-blue-600 text-white rounded-lg font-medium transition-colors duration-300 hover:bg-blue-700 whitespace-nowrap"
+                      className="group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-brand-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800"
                     >
                       View Details
-                    </a>
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </Link>
                   </div>
-                </div>
+                </article>
               ))
             ) : (
               <div className="text-center py-12 bg-gray-50 rounded-lg">
@@ -199,7 +205,7 @@ const JobListings: React.FC = () => {
               Submit a General Application
             </a>
           </div> */}
-        </div>{" "}
+        </div>
       </div>
     </section>
   );

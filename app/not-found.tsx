@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] px-4 text-center">
       <div className="mb-8">
-        <Image src="/logo.png" alt="HEXAD Engineering LLP" width={180} height={65} className="mx-auto mb-8" priority />
+        <Image src="/logo-1.png" alt="HEXAD Engineering LLP" width={180} height={65} className="mx-auto mb-8" priority />
       </div>
 
       <h1 className="text-5xl md:text-6xl font-bold mb-4 text-brand-primary">404</h1>

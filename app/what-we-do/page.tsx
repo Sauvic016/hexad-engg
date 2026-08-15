@@ -1,7 +1,9 @@
 import Image from "next/image";
-import ServicesGrid from "@/components/what-we-do/service";
+import { PlantEngineeringGrid, ProductDesignGrid } from "@/components/what-we-do/service";
 import CustomService from "@/components/what-we-do/custom-service";
-import whatWeDoHero from "@/public/about-banner.webp";
+// import whatWeDoHero from "@/public/about-banner.webp";
+import whatWeDob1 from "@/public/what-we-do-b1.avif";
+import whatWeDob2 from "@/public/what-we-do-b2.avif";
 
 export const metadata = {
   title: "What we do - HEXAD Engineering",
@@ -12,52 +14,74 @@ export default function WhatWeDoPage() {
   return (
     <>
       {/* Banner Section */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden bg-black">
-        <div className="absolute inset-0 z-0">
+
+      <section className="relative overflow-hidden bg-[#07152f] pt-10 pb-14">
+        <div className="absolute inset-0 md:hidden">
           <Image
-            src={whatWeDoHero}
-            alt="HEXAD Engineering"
+            src={whatWeDob1}
+            alt="HEXAD industrial engineering services"
             fill
-            className="object-cover brightness-[0.7]"
-            sizes="100vw"
             priority
+            fetchPriority="high"
+            className="object-cover object-center brightness-[0.58] saturate-[0.85]"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[#07152f]/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-brand-primary/15 mix-blend-color" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07152f]/90 via-[#07152f]/35 to-[#07152f]/55" />
+        </div>
+
+        <div className="absolute inset-y-0 left-0 hidden w-[46%] md:block [-webkit-mask-image:linear-gradient(to_right,#000_0%,#000_68%,transparent_100%)] [mask-image:linear-gradient(to_right,#000_0%,#000_68%,transparent_100%)]">
+          <Image
+            src={whatWeDob2}
+            alt="HEXAD engineering design services"
+            fill
+            fetchPriority="high"
+            className="object-cover object-center brightness-[0.45]"
+            sizes="46vw"
           />
         </div>
 
-        <div className="container relative z-20 mx-auto px-4 h-full flex flex-col justify-center items-center">
-          <div className="max-w-4xl flex flex-col items-center ">
-            <h1 className="text-4xl  md:text-6xl font-bold text-white mb-6 [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
-              What <span className="text-brand-primary"> We</span> Do
+        <div className="absolute inset-y-0 right-0 hidden w-[46%] bg-[#07152f] md:block [-webkit-mask-image:linear-gradient(to_left,#000_0%,#000_68%,transparent_100%)] [mask-image:linear-gradient(to_left,#000_0%,#000_68%,transparent_100%)]">
+          <Image
+            src={whatWeDob1}
+            alt="HEXAD industrial engineering services"
+            className="h-auto w-full object-cover object-top brightness-[0.45] [-webkit-mask-image:linear-gradient(to_bottom,#000_0%,#000_72%,transparent_100%)] [mask-image:linear-gradient(to_bottom,#000_0%,#000_72%,transparent_100%)]"
+            sizes="46vw"
+          />
+        </div>
+
+        <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,transparent_0%,transparent_28%,rgba(10,34,76,0.28)_36%,rgba(7,21,47,0.9)_46%,rgb(7,21,47)_50%,rgba(7,21,47,0.9)_54%,rgba(10,34,76,0.28)_64%,transparent_72%,transparent_100%)] md:block" />
+
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 text-center">
+            <div className="mx-auto my-4 h-1 w-24 bg-brand-primary" />
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-brand-primary">Our Capabilities</p>
+
+            <h1 className="mx-auto mb-4 max-w-3xl text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
+              End-to-End Engineering Solutions That Drive Your Projects Forward
             </h1>
-            {/* <div className="w-40 h-1  bg-brand-primary mb-6"></div> */}
-            <p className="text-lg text-center md:text-xl text-white/90 max-w-2xl [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
-              Innovative engineering solutions for complex industrial challenges
+            <p className="mx-auto max-w-2xl text-white/80 p-2 text-sm ">
+              From concept to commissioning, we deliver innovative engineering solutions that enhance performance ,
+              ensure reliability, and create long-term value.
             </p>
           </div>
+
+          <ProductDesignGrid />
         </div>
       </section>
 
-      <div className="relative overflow-hidden">
-        {/* Background elements */}
-
-        <div className="container mx-auto px-4 py-16  relative z-10">
-          {/* <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <p className="text-lg text-gray-600 leading-relaxed">
-              We provide comprehensive engineering solutions tailored to your industry needs, combining innovative
-              design with practical implementation.
-            </p>
-          </motion.div> */}
-          <div className="mt-16 px-4 md:px-8">
-            <ServicesGrid />
-            <CustomService />
-          </div>
+      <section className="bg-white py-5">
+        <div className="mx-auto w-full max-w-7xl px-4 pb-20  lg:px-8">
+          <PlantEngineeringGrid />
         </div>
-      </div>
+      </section>
+
+      <section className="bg-white pb-20">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <CustomService />
+        </div>
+      </section>
     </>
   );
 }

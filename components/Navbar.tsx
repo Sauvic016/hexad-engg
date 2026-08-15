@@ -53,7 +53,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
         <div className="flex h-20 justify-between items-center">
           <div className="flex">
             <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
-              <Image src="/logo.png" alt="HEXAD Engineering LLP" width={145} height={50} priority />
+              <Image src="/logo-1.png" alt="HEXAD Engineering LLP" width={145} height={50} priority />
             </Link>
           </div>
 

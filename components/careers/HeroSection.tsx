@@ -8,79 +8,49 @@ import careersHero from "@/public/Careers.webp";
 
 const HeroSection: React.FC = () => {
   return (
-    // <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-    //   <div className="absolute inset-0 z-0">
-    //     <Image
-    //       src="/Careers.jpeg"
-    //       width={1920}
-    //       height={1260}
-    //       alt="Team collaborating at a modern office"
-    //       className="w-full h-full object-cover "
-    //     />
-    //   </div>
-
-    //   <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-    //     <h1 className="text-4xl  md:text-6xl font-bold text-white mb-6">
-    //       Join the Mission to{" "}
-    //       <span className="text-brand-primary">Transform</span> the Future
-    //     </h1>
-    //     <p className="text-xl  text-center md:text-2xl text-white mb-2 md:mb-8 max-w-3xl mx-auto">
-    //       We&apos;re building something extraordinary, and we need exceptional
-    //       people like you to make it happen.
-    //     </p>
-    //     <div className="flex flex-row justify-center md:gap-4 gap-2 p-2">
-    //       <Link
-    //         href="#open-positions"
-    //         className="p-2 text-sm md:px-8 md:py-4 bg-blue-600 text-white rounded-lg  md:font-medium md:text-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-lg inline-flex items-center gap-2 group"
-    //       >
-    //         View Open Positions
-    //         <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-    //       </Link>
-    //       <a
-    //         href="/about#our-culture"
-    //         className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-lg font-medium text-lg transition-all duration-300 hover:bg-white/20"
-    //       >
-    //         Discover Our Culture
-    //       </a>
-    //     </div>
-    //   </div>
-    // </section>
-    <section className="relative h-[50vh] md:h-[60vh] overflow-hidden bg-black">
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-[540px] overflow-hidden bg-[#07152f]">
+      <div className="absolute inset-0 md:left-[42%]">
         <Image
           src={careersHero}
-          alt="HEXAD Engineering"
+          alt="HEXAD Engineering team collaborating"
           fill
-          className="object-cover brightness-[0.7]"
+          className="object-cover object-center brightness-[0.62] saturate-[0.85]"
           sizes="100vw"
           priority
         />
       </div>
+      <div className="absolute inset-0 bg-[#07152f]/65 md:hidden" />
+      <div className="absolute inset-0 hidden bg-[linear-gradient(90deg,#07152f_0%,#07152f_38%,rgba(7,21,47,0.92)_48%,rgba(7,21,47,0.38)_68%,rgba(7,21,47,0.08)_100%)] md:block" />
+      <div className="absolute inset-0 bg-brand-primary/10 mix-blend-color" />
 
-      <div className="container relative z-20 mx-auto px-4  h-full flex flex-col justify-center items-center">
-        <div className="max-w-4xl flex flex-col items-center ">
-          <h1 className=" text-center @max-xs:text-3xl text-4xl  md:text-6xl font-bold text-white mb-6 [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
-            Join the Mission to <span className="text-brand-primary">Transform</span> the Future
+      <div className="relative z-10 mx-auto flex min-h-[540px] w-full max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
+        <div className="max-w-2xl text-center md:text-left">
+          <div className="mx-auto mb-5 h-1 w-20 bg-brand-primary md:mx-0" />
+          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">Build Your Career at HEXAD</p>
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Engineer What&apos;s Next.
+            <span className="block text-blue-300">Grow With HEXAD.</span>
           </h1>
-          {/* <div className="w-40 h-1  bg-brand-primary mb-6"></div> */}
-          <p className="text-sm text-center md:text-xl text-white/90 max-w-2xl [text-shadow:0_1px_3px_rgba(0,0,0,0.6),0_0_12px_rgba(0,0,0,0.3)]">
-            We&apos;re building something extraordinary, and we need exceptional people like you to make it happen.
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-blue-100/80 sm:text-lg md:mx-0">
+            Join a multidisciplinary team solving practical engineering challenges across products, plants, and
+            industrial systems.
           </p>
-        </div>
-        <div className="flex flex-row justify-center md:gap-4 gap-2 p-2">
-          <Link
-            href="#open-positions"
-            className=" p-2 text-center text-xs sm:px-8 sm:py-4 bg-blue-600 text-white rounded-lg  md:font-medium sm:text-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-lg inline-flex items-center gap-2 group"
-          >
-            View Open Positions
-            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-          <Link
-            href="/about#our-culture"
-            className="p-2 text-xs text-center sm:px-8 sm:py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-lg font-medium sm:text-lg transition-all duration-300 hover:bg-white/20"
-          >
-            Discover Our Culture
-          </Link>
+
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row md:justify-start">
+            <Link
+              href="#open-positions"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500"
+            >
+              View Open Positions
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/about#our-culture"
+              className="inline-flex items-center justify-center rounded-lg border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Discover Our Culture
+            </Link>
+          </div>
         </div>
       </div>
     </section>
