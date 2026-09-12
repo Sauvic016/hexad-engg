@@ -1,7 +1,5 @@
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export const metadata = {
   title: "Contact Us - HEXAD Engineering",
@@ -91,38 +89,7 @@ export default function ContactPage() {
             <h2 className="mt-3 text-3xl font-bold text-blue-950">Send us a message</h2>
             <p className="mt-3 text-gray-600">Tell us a little about your needs and we&apos;ll get back to you soon.</p>
 
-            <form className="mt-8 grid gap-5">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label htmlFor="first-name" className="text-sm font-semibold text-blue-950">First name</label>
-                  <Input id="first-name" name="firstName" autoComplete="given-name" placeholder="John" required className="h-12 border-blue-100 bg-blue-50/30 focus-visible:ring-brand-primary" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="last-name" className="text-sm font-semibold text-blue-950">Last name</label>
-                  <Input id="last-name" name="lastName" autoComplete="family-name" placeholder="Doe" required className="h-12 border-blue-100 bg-blue-50/30 focus-visible:ring-brand-primary" />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-semibold text-blue-950">Work email</label>
-                <Input id="email" name="email" autoComplete="email" placeholder="john.doe@company.com" type="email" required className="h-12 border-blue-100 bg-blue-50/30 focus-visible:ring-brand-primary" />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-semibold text-blue-950">Subject</label>
-                <Input id="subject" name="subject" placeholder="How can we help you?" required className="h-12 border-blue-100 bg-blue-50/30 focus-visible:ring-brand-primary" />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-semibold text-blue-950">Project details</label>
-                <Textarea id="message" name="message" placeholder="Tell us about your project, goals, and timeline..." required className="min-h-40 resize-y border-blue-100 bg-blue-50/30 focus-visible:ring-brand-primary" />
-              </div>
-
-              <Button type="submit" className="group mt-2 h-12 w-full bg-brand-primary text-white hover:bg-blue-800 sm:w-fit sm:px-7">
-                Send Message
-                <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </Button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>
