@@ -1,9 +1,9 @@
 import JobDetailSection from "@/components/careers/JobDetailSection";
-// import { notFound } from "next/navigation";
 
 export const metadata = {
-  title: " Design Engineer - HEXAD Engineering",
-  description: "Join our team as a  Design Engineer. Explore job details, responsibilities, and qualifications.",
+  title: "Business Development Engineer - HEXAD Engineering",
+  description:
+    "Join HEXAD Engineering as a Business Development Engineer in Bengaluru. Explore this opportunity for candidates with 0–1 year of experience supporting the North American market.",
 };
 
 export default async function JobDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -11,31 +11,42 @@ export default async function JobDetailPage({ params }: { params: Promise<{ id: 
 
   const job = {
     id,
-    title: "Design Engineer",
+    title: "Business Development Engineer",
     company: "HEXAD Engineering",
-    location: "Bengaluru, IND",
+    location: "Bengaluru",
     jobType: "Full-time",
-    department: "Engineering",
+    experience: "0–1 year",
+    workingHours: "3 pm–1 am IST (USA timings)",
+    department: "Business Development",
     remote: false,
-    image: "/software-engineering-office.jpg",
+    description:
+      "We are seeking a motivated and detail-oriented Business Development Engineer to support our engineering services team. The engineer will assist in identifying new business opportunities, building client relationships, and supporting sales and marketing initiatives in areas such as design engineering across the North American market.",
     responsibilities: [
-      "Lead and actively contribute to the design and development of complex electro-mechanical systems and components.",
-      "Create and review detailed design drawings, schematics, and engineering specifications using CAD tools.",
-      "Develop high-quality technical documentation such as design reports, test procedures, and user manuals.",
-      "Ensure all designs comply with organizational standards, industry regulations, and applicable codes.",
-      "Coordinate closely with Team Leads or Project Managers to manage project schedules, milestones, and deliverables.",
+      "Conduct market research to identify potential clients and industry trends in engineering services.",
+      "Assist in lead generation through online platforms, databases, and networking.",
+      "Support the preparation of proposals, presentations, and client pitches.",
+      "Maintain and update client and lead information.",
+      "Coordinate with technical teams to understand service offerings.",
+      "Participate in client meetings, calls, and follow-ups.",
+      "Assist in digital marketing campaigns, including LinkedIn and email outreach.",
+      "Prepare reports on sales performance and business development activities.",
     ],
     qualifications: [
-      "B.E./B.Tech with 3–8 years of relevant experience in switchgear/switchboard design.",
-      "Strong expertise in Sheet Metal Design with a minimum of 3 years of hands-on experience.",
-      "Practical experience in designing Low, Medium, and High-Voltage Switchgear and Switchboards.",
-      "Proficiency in creating detailed engineering drawings, schematics, and specifications.",
-      "Experience designing LV/MV distribution panels, hybrid generators, recloser panels, transformers, enclosures, and bus bars.",
-      "Familiarity with industry standards such as UL, NEMA, and IEEE.",
-      "Proficiency in 2D and 3D CAD software.",
+      "B.Tech or BE qualified in Electrical or Mechanical Engineering.",
+      "Strong communication and interpersonal skills.",
+      "Basic understanding of engineering services and industry practices.",
+      "Proficiency in MS Office (Excel, PowerPoint, Word).",
+      "Analytical thinking and problem-solving ability.",
+      "Self-motivated and eager to learn.",
+      "Ready to work from office and during USA timings (3 pm–1 am IST).",
+    ],
+    learningOutcomes: [
+      "Exposure to real-world business development strategies in engineering services.",
+      "Hands-on experience in client handling and proposal development.",
+      "Understanding of industry trends and competitive analysis.",
+      "Opportunity to develop professional communication and sales skills.",
     ],
   };
 
   return <JobDetailSection jobData={job} />;
-  // notFound();
 }

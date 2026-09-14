@@ -9,6 +9,7 @@ interface Job {
   department: string;
   location: string;
   type: "Full-time" | "Part-time" | "Contract";
+  experience?: string;
   remote: boolean;
 }
 
@@ -18,11 +19,12 @@ const JobListings: React.FC = () => {
 
   const jobs: Job[] = [
     {
-      id: "design-engineer",
-      title: " Design Engineer",
-      department: "Engineering",
+      id: "business-development-engineer",
+      title: "Business Development Engineer",
+      department: "Business Development",
       location: "Bengaluru",
       type: "Full-time",
+      experience: "0–1 year",
       remote: false,
     },
     // {
@@ -172,6 +174,7 @@ const JobListings: React.FC = () => {
                           {job.location}
                         </div>
                         <div>{job.type}</div>
+                        {job.experience && <div>Experience: {job.experience}</div>}
                         {job.remote && (
                           <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
                             Remote Eligible

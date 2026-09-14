@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { MapPin, Briefcase, DollarSign, Clock, Copy, Mail } from "lucide-react";
+import { MapPin, Briefcase, Clock, Copy, Mail, ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 interface IJobData {
@@ -11,6 +11,9 @@ interface IJobData {
   remote: boolean;
   location: string;
   jobType: string;
+  experience?: string;
+  workingHours?: string;
+  learningOutcomes?: string[];
   salary?: string;
   postedDate?: string;
   department: string;
@@ -35,231 +38,236 @@ export default function JobDetailSection({ jobData }: { jobData: IJobData }) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const facts = [
+    { label: "Department", value: jobData.department },
+    { label: "Location", value: jobData.location },
+    { label: "Employment", value: jobData.jobType },
+    { label: "Experience", value: jobData.experience },
+    { label: "Working hours", value: jobData.workingHours },
+    { label: "Salary", value: jobData.salary },
+    { label: "Posted", value: jobData.postedDate },
+    { label: "Remote work", value: jobData.remote ? "Remote eligible" : undefined },
+  ].filter((fact) => fact.value);
+
+  const sections = [
+    { id: "responsibilities", title: "Key Responsibilities", items: jobData.responsibilities },
+    { id: "qualifications", title: "Required Skills & Qualifications", items: jobData.qualifications },
+    { id: "nice-to-have", title: "Nice to Have", items: jobData.niceToHave },
+    { id: "learning-outcomes", title: "Learning Outcomes", items: jobData.learningOutcomes },
+  ].filter((section) => section.items?.length);
+
+  const applyButtonClass =
+    "group inline-flex items-center justify-center gap-2 rounded-lg bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary";
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950">
-      {/* Header */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-        <div className="mx-auto w-full max-w-3xl sm:max-w-4xl px-4 sm:px-6 md:px-8 py-8 sm:py-10">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 md:gap-6">
-            <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+    <div className="min-h-screen bg-white text-blue-950">
+      <section className="relative overflow-hidden bg-[#07152f]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 border-l border-white/5 bg-white/[0.02] lg:block"
+        />
+        <div className="relative mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+          <Link
+            href="/careers#open-positions"
+            className="mb-10 inline-flex items-center gap-2 text-sm font-medium text-blue-100/80 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300"
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            All open positions
+          </Link>
+          <div className="mb-5 h-1 w-20 bg-brand-primary" />
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+            Careers at {jobData.company}
+          </p>
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <h1 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
                 {jobData.title}
               </h1>
-              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-4 sm:mb-6">{jobData.company}</p>
-
-              {/* Meta */}
-              <div className="flex flex-wrap gap-x-4 gap-y-3 sm:gap-x-6">
-                <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-blue-600" />
-                  <span>{jobData.location}</span>
-                </div>
-
-                <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                  <Briefcase className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-blue-600" />
-                  <span>{jobData.jobType}</span>
-                </div>
-
-                {jobData.remote && (
-                  <span className="px-2.5 py-1 bg-blue-100 text-blue-800 rounded-full text-[11px] sm:text-xs font-medium">
-                    Remote Eligible
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-blue-100/80 sm:text-base">
+                <span className="inline-flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-blue-300" aria-hidden="true" />
+                  {jobData.location}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Briefcase className="h-4 w-4 text-blue-300" aria-hidden="true" />
+                  {jobData.jobType}
+                </span>
+                {jobData.experience && (
+                  <span className="inline-flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-blue-300" aria-hidden="true" />
+                    {jobData.experience} experience
                   </span>
                 )}
-
-                {jobData.salary && (
-                  <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                    <DollarSign className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-blue-600" />
-                    <span>{jobData.salary}</span>
-                  </div>
-                )}
-
-                {jobData.postedDate && (
-                  <div className="flex items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                    <Clock className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-blue-600" />
-                    <span>Posted {jobData.postedDate}</span>
-                  </div>
-                )}
               </div>
             </div>
+            <button
+              onClick={() => setIsApplyOpen(true)}
+              className={`${applyButtonClass} w-full shrink-0 hover:bg-blue-500 sm:w-auto cursor-pointer`}
+            >
+              Apply for this role
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Main */}
-      <section className="py-10 sm:py-12">
-        <div className="mx-auto w-full max-w-3xl sm:max-w-4xl px-4 sm:px-6 md:px-8">
-          <div className="flex">
-            <div className="w-full space-y-10 sm:space-y-12">
-              {/* Description */}
-              {jobData.description && (
-                <div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-                    Job Description
-                  </h2>
-                  <div className="prose prose-sm sm:prose base dark:prose-invert max-w-none">
-                    {jobData.description.split("\n\n").map((paragraph, i) => (
-                      <p
-                        key={i}
-                        className="text-[15px] sm:text-[16px] text-gray-700 dark:text-gray-300 leading-7 sm:leading-7.5 mb-3 sm:mb-4"
-                      >
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Responsibilities */}
-              <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-                  Job Summary
-                </h2>
-                <div className="space-y-3 sm:space-y-4">
-                  {jobData.responsibilities.map((r, i) => (
-                    <div key={i} className="flex gap-3 sm:gap-4">
-                      <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mt-0.5">
-                        <span className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400">✓</span>
-                      </div>
-                      <p className="text-[15px] sm:text-base text-gray-700 dark:text-gray-300 pt-0.5">{r}</p>
-                    </div>
-                  ))}
-                </div>
+      <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16 lg:px-8 lg:py-20">
+        <div className="min-w-0 space-y-10 sm:space-y-12">
+          {jobData.description && (
+            <section aria-labelledby="job-summary">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-brand-primary">
+                The Opportunity
+              </p>
+              <h2 id="job-summary" className="mb-5 text-2xl font-bold tracking-tight text-blue-950 sm:text-3xl">
+                Job Summary
+              </h2>
+              <div className="space-y-4 text-base leading-8 text-gray-600">
+                {jobData.description.split("\n\n").map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
               </div>
-
-              {/* Qualifications */}
-              <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-                  Preferred Qualifications
-                </h2>
-                <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
-                  {jobData.qualifications.map((q, i) => (
-                    <div key={i} className="flex gap-3 sm:gap-4">
-                      <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mt-0.5">
-                        <span className="text-xs sm:text-sm font-semibold text-green-600 dark:text-green-400">✓</span>
-                      </div>
-                      <p className="text-[15px] sm:text-base text-gray-700 dark:text-gray-300 pt-0.5">{q}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {!!jobData.niceToHave?.length && (
-                  <>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
-                      Nice to Have
-                    </h3>
-                    <div className="space-y-3 sm:space-y-4">
-                      {jobData.niceToHave.map((item, i) => (
-                        <div key={i} className="flex gap-3 sm:gap-4">
-                          <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mt-0.5">
-                            <span className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400">◆</span>
-                          </div>
-                          <p className="text-[15px] sm:text-base text-gray-700 dark:text-gray-300 pt-0.5">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
+            </section>
+          )}
+          {sections.map((section) => (
+            <section key={section.id} aria-labelledby={section.id} className="border-t border-blue-100 pt-8 sm:pt-10">
+              <h2 id={section.id} className="mb-6 text-xl font-bold tracking-tight text-blue-950 sm:text-2xl">
+                {section.title}
+              </h2>
+              <ul className="space-y-4">
+                {section.items?.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-[15px] leading-7 text-gray-600 sm:text-base">
+                    <Check className="mt-1.5 h-4 w-4 shrink-0 text-brand-primary" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
-      </section>
 
-      {/* CTA */}
-      <section className="bg-gradient-to-r from-blue-600 to-cyan-600 py-10 sm:py-14">
-        <div className="mx-auto w-full max-w-3xl sm:max-w-4xl px-4 sm:px-6 md:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
-            Ready to Join Our Team?
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-blue-50 mb-6 sm:mb-8">
-            Take the next step in your engineering career
-          </p>
-          <button
-            onClick={() => setIsApplyOpen(true)}
-            className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+        <aside aria-label="Role overview" className="min-w-0 lg:sticky lg:top-28 lg:self-start">
+          <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-6 sm:p-8">
+            <div className="mb-5 h-1 w-12 bg-brand-primary" />
+            <h2 className="text-xl font-bold text-blue-950">At a glance</h2>
+            <dl className="mt-6 divide-y divide-blue-100">
+              {facts.map((fact) => (
+                <div key={fact.label} className="py-4 first:pt-0">
+                  <dt className="text-xs font-semibold uppercase tracking-wider text-gray-500">{fact.label}</dt>
+                  <dd className="mt-1.5 text-sm font-medium leading-6 text-blue-950">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <button onClick={() => setIsApplyOpen(true)} className={`${applyButtonClass} mt-6 w-full cursor-pointer`}>
+              Apply Now
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </button>
+            <p className="mt-4 text-center text-xs leading-5 text-gray-500">
+              Send your resume and a brief cover letter to our careers team.
+            </p>
+          </div>
+          <Link
+            href="/careers#open-positions"
+            className="mt-6 flex items-center justify-center gap-2 text-sm font-semibold text-brand-primary transition hover:text-blue-950"
           >
-            Apply Now
-          </button>
-        </div>
-      </section>
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            Explore all opportunities
+          </Link>
+        </aside>
+      </div>
 
       {/* Apply Modal */}
       <Dialog open={isApplyOpen} onOpenChange={setIsApplyOpen}>
-        <DialogContent className="w-[92vw] sm:w-auto max-w-[92vw] sm:max-w-md p-4 sm:p-6">
-          <DialogHeader>
-            <DialogTitle className="text-lg sm:text-xl">Apply for {jobData.title}</DialogTitle>
-            <DialogDescription className="text-sm sm:text-base">
-              Send your application details to our careers team
+        <DialogContent className="flex max-h-[90dvh] flex-col gap-0 overflow-hidden rounded-2xl border-0 bg-white p-0 text-blue-950 shadow-2xl sm:max-w-xl [&>button]:rounded-md [&>button]:p-1 [&>button]:text-white [&>button]:opacity-80 [&>button]:hover:bg-white/10 [&>button]:focus:ring-blue-300">
+          <DialogHeader className="shrink-0 bg-[#07152f] px-6 pb-6 pt-8 text-left sm:px-8">
+            <div className="mb-3 h-1 w-12 bg-brand-primary" />
+            <p className="mb-1 pr-8 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">
+              Join {jobData.company}
+            </p>
+            <DialogTitle className="pr-5 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+              Apply for {jobData.title}
+            </DialogTitle>
+            <DialogDescription className="mt-2 text-sm leading-6 text-blue-100/80">
+              Share your experience and take the next step with our team.
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-5 sm:space-y-6 py-2 sm:py-4">
-            {/* Email Address */}
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 sm:p-4 border border-blue-200 dark:border-blue-800">
-              <p className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Email us at:</p>
-              <div className="flex items-center gap-2">
-                <code className="flex-1 px-2.5 py-2 bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700 text-[12px] sm:text-sm font-mono text-gray-900 dark:text-white break-all">
-                  {emailAddress}
-                </code>
+          <div className="min-h-0 space-y-7 overflow-y-auto px-6 py-6 sm:px-8 sm:py-7">
+            <section aria-labelledby="application-email">
+              <h3 id="application-email" className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500">
+                Send your application to
+              </h3>
+              <div className="flex flex-wrap items-center gap-3 rounded-xl border border-blue-100 bg-blue-50/50 p-4">
+                <div className="flex min-w-0 flex-1 items-center gap-3">
+                  <Mail className="h-5 w-5 shrink-0 text-brand-primary" aria-hidden="true" />
+                  <span className="min-w-0 break-all text-sm font-semibold text-blue-950">{emailAddress}</span>
+                </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="p-2 hover:bg-blue-100 dark:hover:bg-blue-900/40 rounded transition-colors"
-                  title="Copy email"
+                  className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-blue-100 bg-white px-3 py-2 text-xs font-semibold text-brand-primary transition hover:border-blue-200 hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+                  aria-label={copied ? "Email address copied" : "Copy email address"}
                 >
-                  <Copy className={`h-4 w-4 ${copied ? "text-green-600" : "text-gray-600"}`} />
+                  {copied ? (
+                    <Check className="h-4 w-4" aria-hidden="true" />
+                  ) : (
+                    <Copy className="h-4 w-4" aria-hidden="true" />
+                  )}
+                  {copied ? "Copied" : "Copy"}
                 </button>
               </div>
-              {copied && (
-                <p className="text-[11px] sm:text-xs text-green-600 dark:text-green-400 mt-2">✓ Copied to clipboard</p>
-              )}
-            </div>
+              <span role="status" className="sr-only">
+                {copied ? "Email address copied to clipboard" : ""}
+              </span>
+            </section>
 
-            {/* Instructions */}
-            <div>
-              <p className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white mb-3">
-                Please include in your email:
-              </p>
-              <ul className="space-y-2">
-                <li className="flex gap-2.5 sm:gap-3 text-[13px] sm:text-sm text-gray-700 dark:text-gray-300">
-                  <span className="text-blue-600 dark:text-blue-400 font-bold">•</span>
-                  <span>Your resume/CV (PDF preferred)</span>
-                </li>
-                <li className="flex gap-2.5 sm:gap-3 text-[13px] sm:text-sm text-gray-700 dark:text-gray-300">
-                  <span className="text-blue-600 dark:text-blue-400 font-bold">•</span>
-                  <span>A brief cover letter highlighting relevant experience</span>
-                </li>
-                <li className="flex gap-2.5 sm:gap-3 text-[13px] sm:text-sm text-gray-700 dark:text-gray-300">
-                  <span className="text-blue-600 dark:text-blue-400 font-bold">•</span>
-                  <span>
-                    The job title: <strong>{jobData.title}</strong>
-                  </span>
-                </li>
-                <li className="flex gap-2.5 sm:gap-3 text-[13px] sm:text-sm text-gray-700 dark:text-gray-300">
-                  <span className="text-blue-600 dark:text-blue-400 font-bold">•</span>
-                  <span>Your contact information (phone & LinkedIn)</span>
-                </li>
+            <section aria-labelledby="application-checklist">
+              <h3 id="application-checklist" className="text-base font-bold text-blue-950">
+                What to include
+              </h3>
+              <ul className="mt-4 space-y-4">
+                {[
+                  { title: "Your resume / CV", detail: "PDF format preferred." },
+                  { title: "A brief cover letter", detail: "Tell us about your relevant experience." },
+                  { title: "The role you’re applying for", detail: jobData.title },
+                  { title: "Your contact details", detail: "Phone number and LinkedIn profile." },
+                ].map((item) => (
+                  <li key={item.title} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-50 text-brand-primary">
+                      <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-blue-950">{item.title}</p>
+                      <p className="mt-0.5 text-sm leading-6 text-gray-500">{item.detail}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
-            </div>
+            </section>
+          </div>
 
-            {/* Actions */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2 sm:pt-4">
+          <div className="shrink-0 border-t border-blue-100 bg-blue-50/40 px-6 py-5 sm:px-8">
+            <div className="flex flex-col gap-3 sm:flex-row-reverse">
               <Link
                 href={`${gmailBaseUrl}&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent(
                   `${jobData.title} Applicant`,
                 )}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
+                className={`${applyButtonClass} sm:flex-1`}
               >
-                <Mail className="h-4 w-4" />
+                <Mail className="h-4 w-4" aria-hidden="true" />
                 Open in Gmail
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Link>
               <button
                 onClick={() => setIsApplyOpen(false)}
-                className="w-full sm:w-auto px-5 sm:px-6 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-800 font-semibold rounded-lg transition-colors"
+                className="rounded-lg border border-blue-200 bg-white px-5 py-3 text-sm font-semibold text-blue-950 transition hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
               >
-                Close
+                Back to role
               </button>
             </div>
+            <p className="mt-3 text-center text-xs leading-5 text-gray-500">
+              Gmail opens in a new tab with the recipient and subject filled in.
+            </p>
           </div>
         </DialogContent>
       </Dialog>
