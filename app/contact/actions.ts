@@ -1,7 +1,7 @@
 "use server";
 
-import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis";
+// import { Ratelimit } from "@upstash/ratelimit";
+// import { Redis } from "@upstash/redis";
 import { headers } from "next/headers";
 import { z } from "zod";
 
@@ -20,24 +20,25 @@ const contactSchema = z.object({
   turnstileToken: z.string().min(1).max(2048),
 });
 
-let contactRateLimit: Ratelimit | undefined;
-
-function getContactRateLimit() {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-
-  if (!url || !token) {
-    return null;
-  }
-
-  contactRateLimit ??= new Ratelimit({
-    redis: new Redis({ url, token }),
-    limiter: Ratelimit.slidingWindow(5, "10 m"),
-    prefix: "ratelimit:contact",
-  });
-
-  return contactRateLimit;
-}
+// shortcut: Contact-form rate limiting is disabled until Upstash Redis is restored.
+// let contactRateLimit: Ratelimit | undefined;
+//
+// function getContactRateLimit() {
+//   const url = process.env.UPSTASH_REDIS_REST_URL;
+//   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+//
+//   if (!url || !token) {
+//     return null;
+//   }
+//
+//   contactRateLimit ??= new Ratelimit({
+//     redis: new Redis({ url, token }),
+//     limiter: Ratelimit.slidingWindow(5, "10 m"),
+//     prefix: "ratelimit:contact",
+//   });
+//
+//   return contactRateLimit;
+// }
 
 async function verifyTurnstileToken(token: string, ip: string) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
@@ -84,23 +85,23 @@ export async function sendContactMessage(
     ?? requestHeaders.get("x-real-ip")
     ?? requestHeaders.get("x-forwarded-for")?.split(",")[0]?.trim()
     ?? "unknown";
-  const rateLimit = getContactRateLimit();
-
-  if (!rateLimit) {
-    console.error("Contact form rate limiting settings are missing.");
-    return { status: "error", message: "Please try again later." };
-  }
-
-  try {
-    const { success } = await rateLimit.limit(ip);
-
-    if (!success) {
-      return { status: "error", message: "Please try again later." };
-    }
-  } catch {
-    console.error("Contact form rate limiting is unavailable.");
-    return { status: "error", message: "Please try again later." };
-  }
+  // const rateLimit = getContactRateLimit();
+  //
+  // if (!rateLimit) {
+  //   console.error("Contact form rate limiting settings are missing.");
+  //   return { status: "error", message: "Please try again later." };
+  // }
+  //
+  // try {
+  //   const { success } = await rateLimit.limit(ip);
+  //
+  //   if (!success) {
+  //     return { status: "error", message: "Please try again later." };
+  //   }
+  // } catch {
+  //   console.error("Contact form rate limiting is unavailable.");
+  //   return { status: "error", message: "Please try again later." };
+  // }
 
   const turnstileIsValid = await verifyTurnstileToken(parsed.data.turnstileToken, ip);
 
